@@ -3,7 +3,7 @@ import { getDestinations } from '../../helpers/getDestinationData';
 const FETCH_DATA = 'FETCH_DATA';
 const initialState = [];
 
-export const getCorona = () => async (dispatch) => {
+export const fetchDestinations = () => async (dispatch) => {
   const destinations = await getDestinations();
   dispatch({ type: FETCH_DATA, payload: destinations });
 };
