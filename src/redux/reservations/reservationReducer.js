@@ -1,4 +1,4 @@
-import { getReservations } from "../../helpers/getReservationData";
+import { deleteReservation, getReservations, postReservation } from '../../helpers/getReservationData';
 
 const LOAD_RESERVATIONS = 'vacation-booking-back-end/reservations/LOAD_RESERVATIONS';
 const ADD_RESERVATION = 'vacation-booking-back-end/reservations/ADD_RESERVATION';
@@ -37,41 +37,18 @@ const reservationCancelAction = (payload) => ({
 export const loadReservations = () => async (dispatch, getState) => {
   const state = getState();
   if (state.reservations === []) {
-    dispatch(reservationsLoadAction(getReservations(state.user.auth)));
+    dispatch(reservationsLoadAction(await getReservations(state.user.auth)));
   }
 };
 
 export const addReservation = (id) => async (dispatch, getState) => {
   const state = getState();
-  const response = await fetch('http://localhost:port_number/api/v1/reservations', {
-    method: 'POST',
-    headers: {
-      Authorization: state.user.auth_token,
-    },
-    body: JSON.stringify({
-      destination_id: id,
-    }),
-  });
-  if (response.status === 200) {
-    const reservation = await response.json();
-    dispatch(reservationAddAction(reservation));
-  }
+  dispatch(reservationAddAction(await postReservation(state.user.authToken, id)));
 };
 
 export const cancelReservation = (id) => async (dispatch, getState) => {
   const state = getState();
-  const response = await fetch('http://localhost:port_number/api/v1/reservations/destination_id', {
-    method: 'DELETE',
-    headers: {
-      Authorization: state.user.auth_token,
-    },
-    body: JSON.stringify({
-      destination_id: id,
-    }),
-  });
-  if (response.status === 200) {
-    dispatch(reservationCancelAction(id));
-  }
+  dispatch(reservationCancelAction(await deleteReservation(state.user.authToken, id)));
 };
 
 export default reservationReducer;
