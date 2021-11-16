@@ -5,6 +5,7 @@ import { logInUser } from '../redux/Auth/auth';
 
 export default function Login() {
   const loggedIn = useSelector((state) => state.user.logged_in);
+  const errors = useSelector((state) => state.user.errors);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,6 +34,7 @@ export default function Login() {
   return (
     <div>
       <h1>Log In</h1>
+      {errors ? <p>{ errors}</p> : ''}
       <form onSubmit={handleSubmit}>
         <input
           placeholder="email"

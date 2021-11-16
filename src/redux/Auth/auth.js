@@ -33,7 +33,7 @@ export const logInUser = (data) => async (dispatch) => {
   if (res.token) {
     dispatch({ type: SIGN_IN_USER, payload: res });
   } else {
-    dispatch({ type: GET_ERRORS, payload: res.errors[1] });
+    dispatch({ type: GET_ERRORS, payload: res.errors });
   }
 };
 

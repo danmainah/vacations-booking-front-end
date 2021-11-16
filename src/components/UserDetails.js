@@ -19,30 +19,33 @@ export default function UserDetails() {
   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(logOutUser());
-    navigate('/destinations');
+    navigate('/');
   };
 
   return (
-    loggedIn ? (
-      <div>
+    <>
+      {loggedIn ? (
         <div>
-          Welcome
-          {' '}
-          {username.username}
-          !
-        </div>
+          <div>
+            Welcome
+            {' '}
+            {username}
+            !
+          </div>
 
-        <button type="submit" onClick={handleLogOut}>Log Out</button>
-      </div>
-    )
-      : (
-        <div>
-          <Link to="/login">Log In</Link>
-          <br />
-          <Link to="/register">Sign Up</Link>
-          <div>Home Component</div>
+          <button type="submit" onClick={handleLogOut}>Log Out</button>
         </div>
       )
+        : (
+          <div>
+            <Link to="/login">Log In</Link>
+            <br />
+            <Link to="/register">Sign Up</Link>
+
+          </div>
+        )}
+      <div>User Details page</div>
+    </>
 
   );
 }
