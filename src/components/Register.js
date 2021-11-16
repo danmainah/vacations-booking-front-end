@@ -1,6 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { createUser } from '../redux/Auth/auth';
 
 export default function Register() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => state.user.logged_in);
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/user');
+    }
+  }, [loggedIn]);
+
   const userDetails = {
     username: '',
     email: '',
@@ -16,6 +28,13 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(createUser(details));
+    setDetails({
+      username: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+    });
   };
 
   return (
