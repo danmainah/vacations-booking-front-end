@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { CardGroup, Card } from 'react-bootstrap';
-import '../styles/Slider.css';
+import '../styles/Slides.css';
 
 const Slides = () => (
   <div className="container">
