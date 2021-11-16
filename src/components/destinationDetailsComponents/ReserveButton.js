@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 const ReserveButton = ({ id }) => {
@@ -16,6 +17,10 @@ const ReserveButton = ({ id }) => {
       {buttonStatus ? 'Reserve' : 'Reserved'}
     </button>
   );
+};
+
+ReserveButton.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default ReserveButton;
