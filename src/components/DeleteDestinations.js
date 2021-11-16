@@ -29,14 +29,16 @@ const DeleteDestinations = () => {
       <ul>
         {hardcodedDestinations
         && hardcodedDestinations.map((destination) => (
-          <li>
-
+          <li key={destination.id}>
+            {destination.image}
+            {destination.name}
+            {destination.location}
+            {destination.pricePerDay}
           </li>
         ))}
       </ul>
-      
     </div>
-  )
-}
+  );
+};
 
 export default DeleteDestinations;
