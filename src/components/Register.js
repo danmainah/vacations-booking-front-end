@@ -7,6 +7,8 @@ export default function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedIn = useSelector((state) => state.user.logged_in);
+  const errors = useSelector((state) => state.user.errors);
+
   useEffect(() => {
     if (loggedIn) {
       navigate('/user');
@@ -40,6 +42,7 @@ export default function Register() {
   return (
     <div>
       <h1>Sign Up for an Account</h1>
+      {errors ? <p>{Object.keys(errors) ? (`${Object.keys(errors)} ${Object.values(errors)}`) : errors}</p> : ''}
       <form onSubmit={handleSubmit}>
         <input
           placeholder="username"

@@ -19,6 +19,7 @@ export default function UserDetails() {
   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(logOutUser());
+    navigate('/destinations');
   };
 
   return (
@@ -26,6 +27,7 @@ export default function UserDetails() {
       <div>
         <div>
           Welcome
+          {' '}
           {username.username}
           !
         </div>

@@ -2,8 +2,15 @@ import jwt from 'jwt-decode';
 
 const URL = 'http://localhost:3000/api/v1/';
 
+const handleError = (err) => {
+  console.warn(err);
+  return new Response(JSON.stringify(
+    { errors: ['Connection failed!', 'Server is down!'] },
+  ));
+};
+
 export const authUser = async (data) => {
-  const req = await fetch(`${URL}users/sign_in`, {
+  const req = await (fetch(`${URL}users/sign_in`, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -19,7 +26,10 @@ export const authUser = async (data) => {
       password: data.password,
 
     }), // body data type must match "Content-Type" header
+  })).catch((e) => {
+    console.log(e);
   });
+
   const res = await req.json();
 
   if (res.token) {
@@ -32,7 +42,7 @@ export const authUser = async (data) => {
 };
 
 export const regUser = async (data) => {
-  const req = await fetch(`${URL}users`, {
+  const req = await (fetch(`${URL}users`, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -52,14 +62,17 @@ export const regUser = async (data) => {
       },
 
     }), // body data type must match "Content-Type" header
-  });
-
-  const res = await req.json();
-  if (res.token) {
-    localStorage.setItem('token', res.token);
-    const user = jwt(res.token);
-    res.details = user.sub;
+  })).catch(handleError);
+  if (req.ok) {
+    const res = await req.json();
+    if (res.token) {
+      localStorage.setItem('token', res.token);
+      const user = jwt(res.token);
+      res.details = user.sub;
+      return res;
+    }
+    console.log(res);
     return res;
   }
-  return res;
+  return Promise.reject(req);
 };
