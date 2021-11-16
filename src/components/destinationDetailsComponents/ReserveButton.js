@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { reserveDestination } from '../../redux/reservations/reservationReducers';
 
 const ReserveButton = ({ id }) => {
-  const reserveButtonstatuses = useSelector((state) => state.reserveButtonStatuses);
+  const reservations = useSelector((state) => state.reservations);
 
-  const buttonStatus = (id) => reserveButtonstatuses.some((item) => item.id === id);
+  const buttonStatus = (id) => reservations.some((item) => item.destination_id === id);
 
   const dispatch = useDispatch();
 
@@ -13,7 +14,7 @@ const ReserveButton = ({ id }) => {
     dispatch(reserveDestination(id));
   };
   return (
-    <button type="button" onClick={handleClick} disabled={buttonStatus}>
+    <button type="button" onClick={handleClick}>
       {buttonStatus ? 'Reserve' : 'Reserved'}
     </button>
   );
