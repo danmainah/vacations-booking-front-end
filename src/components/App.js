@@ -4,16 +4,14 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
-import UserDetails from './UserDetails';
 
 const App = () => (
   <Router>
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route exact path="/" element={<Destinations />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/destinations" element={<Destinations />} />
-      <Route path="/user" element={<UserDetails />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   </Router>
 );

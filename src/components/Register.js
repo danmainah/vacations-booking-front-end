@@ -11,7 +11,7 @@ export default function Register() {
 
   useEffect(() => {
     if (loggedIn) {
-      navigate('/user');
+      navigate('/home');
     }
   }, [loggedIn]);
 

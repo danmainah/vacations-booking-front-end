@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { logInUser } from '../redux/Auth/auth';
 
 export default function Login() {
@@ -11,7 +11,7 @@ export default function Login() {
 
   useEffect(() => {
     if (loggedIn) {
-      navigate('/user');
+      navigate('/home');
     }
   }, [loggedIn]);
 
@@ -53,7 +53,11 @@ export default function Login() {
         <button placeholder="submit" type="submit">
           Log In
         </button>
-
+        <p>
+          Don&apos;t have an account yet?
+          {' '}
+          <Link to="/register">Register now!</Link>
+        </p>
       </form>
     </div>
   );
