@@ -25,41 +25,44 @@ const MyReservations = () => {
   };
 
   return (
-    <ul>
-      {' '}
-      {
-      reservations.map((reservation) => (
-        <li key={reservation.id}>
-          <span>
-            {' '}
-            {reservation.name}
-            {' '}
-          </span>
-          <span>
-            {' '}
-            from:
-            {reservation.startDate}
-          </span>
-          <span>
-            {' '}
-            to:
-            {reservation.endDate}
-          </span>
-          <span>
-            {' '}
-            to:
-            {reservation.cost}
-          </span>
-          <button
-            type="button"
-            onClick={() => handleCancelClick(reservation.id)}
-          >
-            Cancel reservation
-          </button>
-        </li>
-      ))
-    }
-    </ul>
+    <>
+      <h2>My Reservations</h2>
+      <ul>
+        {' '}
+        {
+        reservations.map((reservation) => (
+          <li key={reservation.id}>
+            <span>
+              {' '}
+              {reservation.name}
+              {' '}
+            </span>
+            <span>
+              {' '}
+              from:
+              {reservation.startDate}
+            </span>
+            <span>
+              {' '}
+              to:
+              {reservation.endDate}
+            </span>
+            <span>
+              {' '}
+              to:
+              {reservation.cost}
+            </span>
+            <button
+              type="button"
+              onClick={() => handleCancelClick(reservation.id)}
+            >
+              Cancel reservation
+            </button>
+          </li>
+        ))
+      }
+      </ul>
+    </>
   );
 };
 
