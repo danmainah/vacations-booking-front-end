@@ -27,7 +27,7 @@ const Slides = () => (
   <div className="container">
     <div className="row">
       <Carousel>
-        <Carousel.Item interval={1500}>
+        <Carousel.Item interval={3000}>
 
           <CardGroup>
             {DesData.map((data) => (
