@@ -4,6 +4,7 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
+import Reservation from './Reservation';
 
 const App = () => (
   <Router>
@@ -12,6 +13,7 @@ const App = () => (
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/reserve" element={<Reservation />} />
     </Routes>
   </Router>
 );
