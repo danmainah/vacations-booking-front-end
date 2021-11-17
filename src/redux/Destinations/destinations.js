@@ -1,7 +1,21 @@
-import { getDestinations } from '../../helpers/getDestinationData';
+import getDestinations from '../../helpers/getDestinations';
+import destroyDestination from '../../helpers/destroyDestination';
 
-const FETCH_DATA = 'FETCH_DATA';
+const FETCH_DATA = 'vacations-booking-front-end/destinations/FETCH_DATA';
+const DELETE = 'vacations-booking-front-end/destinations/DELETE';
 const initialState = [];
+
+const deleteDestination = (payload) => ({
+  type: DELETE,
+  payload,
+});
+
+const deleteThunkDestination = (destinationId) => async (dispatch) => {
+  const response = await destroyDestination();
+  if (response.status === 'Success!') {
+    dispatch(deleteDestination(destinationId));
+  }
+};
 
 export const fetchDestinations = () => async (dispatch) => {
   const destinations = await getDestinations();
@@ -12,8 +26,18 @@ export const destinationsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case FETCH_DATA:
-      return payload;
+      return {
+        ...state,
+        destinations: payload,
+      };
+    case DELETE:
+      return {
+        ...state,
+        ...state.filter((destination) => destination.id !== action.payload),
+      };
     default:
       return state;
   }
 };
+
+export { deleteThunkDestination };
