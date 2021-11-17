@@ -46,12 +46,26 @@ export default function Reservation(props) {
 
   const handleEndDate = (date) => {
     setEndDate(date);
-    console.log(endDate);
+    // console.log(endDate);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(moment(endDate).format('l'));
+    console.log(
+      {
+        user_id: username,
+        destination_id: chosenDestination,
+        startingDay: moment(startDate).format('l'),
+        endingDay: moment(endDate).format('l'),
+      },
+    );
+  };
+
   return (
     <div className="wrapper">
       <h1>Reservation form</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="user">
           <Form.Label>User</Form.Label>
           <Form.Control type="text" placeholder="Enter user ID" value={username} disabled />
@@ -62,12 +76,13 @@ export default function Reservation(props) {
 
         <Form.Group className="mb-3" controlId="destination">
           <Form.Label>Destination</Form.Label>
-          <select className="form-select destination-dropdown" aria-label="Default select example">
+          {/* <select className="form-select
+           destination-dropdown" aria-label="Default select example">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
-          </select>
+          </select> */}
           <Form.Control
             as="select"
             value={chosenDestination}
