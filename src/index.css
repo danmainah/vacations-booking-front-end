@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family:
@@ -32,6 +33,7 @@ code {
     'Courier New',
     monospace;
 }
+
 .app {
   background-color: rgb(27, 26, 26);
   width: 100%;
