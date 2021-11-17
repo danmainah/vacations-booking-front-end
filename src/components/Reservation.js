@@ -76,13 +76,6 @@ export default function Reservation(props) {
 
         <Form.Group className="mb-3" controlId="destination">
           <Form.Label>Destination</Form.Label>
-          {/* <select className="form-select
-           destination-dropdown" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select> */}
           <Form.Control
             as="select"
             value={chosenDestination}
