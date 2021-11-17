@@ -8,7 +8,7 @@ const getReservation = (payload) => ({
 });
 
 const getReservationThunk = () => async (dispatch) => {
-  const request = await fetch('http://localhost:3000/v1/reservations');
+  const request = await fetch('http://localhost:3000/api/v1/reservations');
   const response = await request.json();
   const data = await response.reservation;
   if (data) {

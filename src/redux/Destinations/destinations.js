@@ -8,12 +8,9 @@ const getDestination = (payload) => ({
 });
 
 const getDestinationThunk = () => async (dispatch) => {
-  const request = await fetch('http://localhost:3000/v1/Destinations');
-  const response = await request.json();
-  const data = await response.destination;
-  if (data) {
-    dispatch(getDestination(data));
-  }
+  const request = await fetch('http://localhost:3000/api/v1/destinations');
+  const data = await request.json();
+  dispatch(getDestination(data));
 };
 
 const destinationReducer = (state = initialValue, action) => {
