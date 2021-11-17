@@ -1,4 +1,4 @@
-const GET_DESTINATIONS = 'GET_DESTINATIONS';
+const GET_DESTINATIONS = 'vacations-booking-front-end/Destination/GET_DESTINATIONS';
 
 const initialValue = {};
 
@@ -6,12 +6,6 @@ const getDestination = (payload) => ({
   type: GET_DESTINATIONS,
   payload,
 });
-
-const getDestinationThunk = () => async (dispatch) => {
-  const request = await fetch('http://localhost:3000/api/v1/destinations');
-  const data = await request.json();
-  dispatch(getDestination(data));
-};
 
 const destinationReducer = (state = initialValue, action) => {
   switch (action.type) {
@@ -25,4 +19,4 @@ const destinationReducer = (state = initialValue, action) => {
   }
 };
 
-export { destinationReducer, getDestinationThunk };
+export { destinationReducer, getDestination };

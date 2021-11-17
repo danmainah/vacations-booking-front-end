@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slides from './Slides';
-import { getDestinationThunk } from '../redux/Destinations/destinations';
+import getDestinationThunk from '../helpers/getDestinationData';
 
 const Destinations = () => {
   let destinations;
