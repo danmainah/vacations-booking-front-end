@@ -4,7 +4,9 @@ import Destinations from './Destinations';
 
 const App = () => (
   <Router>
-    <Destinations />
+    <div className="App">
+      <Destinations />
+    </div>
   </Router>
 );
 
