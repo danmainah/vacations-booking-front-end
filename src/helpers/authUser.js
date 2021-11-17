@@ -54,12 +54,11 @@ export const regUser = async (data) => {
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify({
-      user: {
-        username: data.username,
-        email: data.email,
-        password: data.password,
-        password_confirmation: data.password_confirmation,
-      },
+
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      password_confirmation: data.password_confirmation,
 
     }), // body data type must match "Content-Type" header
   })).catch(handleError);

@@ -9,6 +9,7 @@ const initialState = {
   logged_in: false,
   loading: true,
   token: null,
+  admin: null,
   details: null,
   errors: null,
 };
@@ -42,7 +43,12 @@ const authReducer = (state = initialState, action) => {
   switch (type) {
     case REGISTER_USER:
       return {
-        ...state, logged_in: true, loading: false, token: payload.token, details: payload.details,
+        ...state,
+        logged_in: true,
+        loading: false,
+        admin: payload.admin,
+        token: payload.token,
+        details: payload.details,
       };
     case GET_ERRORS:
       return {
@@ -53,13 +59,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
         logged_in: true,
         loading: false,
+        admin: payload.admin,
         token: payload.token,
         details: payload.details,
         errors: null,
       };
     case SIGN_OUT_USER:
       return {
-        ...state, logged_in: false, loading: false, token: null, details: null, errors: null,
+        ...state, logged_in: false, admin: null, token: null, details: null, errors: null,
       };
     default:
       return state;
