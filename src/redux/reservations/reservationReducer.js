@@ -1,4 +1,8 @@
-import { deleteReservation, getReservations, postReservation } from '../../helpers/getReservationData';
+import {
+  deleteReservation,
+  getReservations,
+  postReservation,
+} from '../../helpers/getReservationData';
 
 const LOAD_RESERVATIONS = 'vacation-booking-back-end/reservations/LOAD_RESERVATIONS';
 const ADD_RESERVATION = 'vacation-booking-back-end/reservations/ADD_RESERVATION';
@@ -41,9 +45,12 @@ export const loadReservations = () => async (dispatch, getState) => {
   }
 };
 
-export const addReservation = (id) => async (dispatch, getState) => {
+export const addReservation = (destinationId, startDate, endDate) => async (dispatch, getState) => {
   const state = getState();
-  dispatch(reservationAddAction(await postReservation(state.user.authToken, id)));
+  dispatch(reservationAddAction(await postReservation(state.user.authToken,
+    destinationId,
+    startDate,
+    endDate)));
 };
 
 export const cancelReservation = (id) => async (dispatch, getState) => {

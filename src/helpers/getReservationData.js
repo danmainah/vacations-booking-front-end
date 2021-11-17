@@ -5,18 +5,20 @@ export const getReservations = async (authToken) => {
       Authorization: authToken,
     },
   });
-  
+
   return response.json();
 };
 
-export const postReservation = async (authToken, id) => {
+export const postReservation = async (authToken, destinationId, startDate, endDate) => {
   const response = await fetch('http://localhost:port_number/api/v1/reservations', {
     method: 'POST',
     headers: {
       Authorization: authToken,
     },
     body: JSON.stringify({
-      destination_id: id,
+      destination_id: destinationId,
+      start_date: startDate,
+      end_date: endDate,
     }),
   });
   return response.json();
