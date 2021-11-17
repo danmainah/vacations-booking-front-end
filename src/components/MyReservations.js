@@ -5,10 +5,8 @@ import {
   useSelector,
   useDispatch,
 } from 'react-redux';
-import {
-  loadReservations,
-  cancelReservation,
-} from '../redux/reservations/reservationReducer';
+// eslint-disable-next-line import/extensions
+import { loadReservations, cancelReservation } from '../redux/reservations/reservationReducer';
 
 const MyReservations = () => {
   const reservations = useSelector((state) => state.reservations);
