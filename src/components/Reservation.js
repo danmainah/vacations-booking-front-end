@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Navigate } from 'react-router-dom';
 import moment from 'moment';
 import { Form, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
@@ -81,95 +82,100 @@ export default function Reservation(props) {
   };
 
   return (
-    <div
-      className={styles.wrapper}
-      style={{
-        backgroundImage: `url(${bgImg})`,
-      }}
-    >
-      {!submitted && (
-      <div>
-        <h1>Reservation form</h1>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="user">
-            <Form.Label>User</Form.Label>
-            <Form.Control type="text" value={username} disabled />
-          </Form.Group>
-
-          {destinationPassed
-            ? (
-              <Form.Group className="mb-3" controlId="destination">
-                <Form.Label>Destination</Form.Label>
-                <Form.Control type="text" value={destination} disabled />
+    <>
+      {token ? (
+        <div
+          className={styles.wrapper}
+          style={{
+            backgroundImage: `url(${bgImg})`,
+          }}
+        >
+          {!submitted && (
+          <div>
+            <h1>Reservation form</h1>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="user">
+                <Form.Label>User</Form.Label>
+                <Form.Control type="text" value={username} disabled />
               </Form.Group>
-            ) : (
-              <Form.Group className="mb-3" controlId="destination">
-                <Form.Label>Destination</Form.Label>
-                <Form.Control
-                  as="select"
-                  value={chosenDestination}
-                  onChange={(e) => {
-                    setChosenDestination(e.target.value);
-                  }}
-                >
-                  {destinations.map(({ name, id }) => (
-                    <option
-                      value={name}
-                      key={id}
+
+              {destinationPassed
+                ? (
+                  <Form.Group className="mb-3" controlId="destination">
+                    <Form.Label>Destination</Form.Label>
+                    <Form.Control type="text" value={destination} disabled />
+                  </Form.Group>
+                ) : (
+                  <Form.Group className="mb-3" controlId="destination">
+                    <Form.Label>Destination</Form.Label>
+                    <Form.Control
+                      as="select"
+                      value={chosenDestination}
+                      onChange={(e) => {
+                        setChosenDestination(e.target.value);
+                      }}
                     >
-                      {name}
-                    </option>
-                  ))}
-                </Form.Control>
+                      {destinations.map(({ name, id }) => (
+                        <option
+                          value={name}
+                          key={id}
+                        >
+                          {name}
+                        </option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+                )}
+
+              <Form.Group className="mb-3" controlId="startDate">
+                <Form.Label>Pick a Start Date:</Form.Label>
+                <div className="mb-3">
+                  <DatePicker
+                    class="form-control"
+                    id="startDatePicker"
+                    selected={startDate}
+                    minDate={new Date()}
+                    onChange={handleStartDate}
+                  />
+                </div>
               </Form.Group>
-            )}
 
-          <Form.Group className="mb-3" controlId="startDate">
-            <Form.Label>Pick a Start Date:</Form.Label>
-            <div className="mb-3">
-              <DatePicker
-                class="form-control"
-                id="startDatePicker"
-                selected={startDate}
-                minDate={new Date()}
-                onChange={handleStartDate}
-              />
+              <Form.Group className="mb-3" controlId="endDate">
+                <Form.Label>Pick an End Date:</Form.Label>
+                <DatePicker
+                  class="form-control"
+                  selected={endDate}
+                  minDate={startDate}
+                  onChange={handleEndDate}
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+
+            {startDate && endDate && (
+            <div className="summary">
+              <p>
+                You book a tour from
+                {' '}
+                {moment(startDate).format('LL')}
+                {' '}
+                to
+                {' '}
+                {moment(endDate).format('LL')}
+                .
+              </p>
             </div>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="endDate">
-            <Form.Label>Pick an End Date:</Form.Label>
-            <DatePicker
-              class="form-control"
-              selected={endDate}
-              minDate={startDate}
-              onChange={handleEndDate}
-            />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-
-        {startDate && endDate && (
-        <div className="summary">
-          <p>
-            You book a tour from
-            {' '}
-            {moment(startDate).format('LL')}
-            {' '}
-            to
-            {' '}
-            {moment(endDate).format('LL')}
-            .
-          </p>
+            )}
+          </div>
+          )}
+          {submitted && <p className="h4 text-success text-center">Reservation successfully created!</p>}
         </div>
-        )}
-      </div>
-      )}
-      {submitted && <p className="h4 text-success text-center">Reservation successfully created!</p>}
-    </div>
+      ) : <Navigate to="/login" />}
+    </>
+
   );
 }
 
