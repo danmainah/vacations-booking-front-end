@@ -5,7 +5,6 @@ import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
 import Reservation from './Reservation';
-import store from '../redux/store';
 
 const App = () => (
   <div className="App">
