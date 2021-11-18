@@ -35,7 +35,7 @@ const reservationReducer = (state = initialValue, action) => {
         reservations: action.payload,
       };
     case POST_RESERVATIONS:
-      return state;
+      return { ...state, success: action.payload };
     case GET_ERRORS:
       return {
         ...state,
