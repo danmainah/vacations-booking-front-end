@@ -97,11 +97,7 @@ export default function Reservation(props) {
     <div
       className="wrapper"
       style={{
-        background: `url(${bgImg}) no-repeat center center fixed`,
-        backgroundSize: 'cover',
-        opacity: 0.7,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        margin: 'auto auto',
+        backgroundImage: `url(${bgImg})`,
       }}
     >
       <h1>Reservation form</h1>

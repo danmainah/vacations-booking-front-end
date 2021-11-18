@@ -11,6 +11,13 @@ html {
   color: white;
   /* background: url("https://images.unsplash.com/photo-1601871925712-3c803d50fa72?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")
     no-repeat center center fixed; */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: "auto auto";
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
