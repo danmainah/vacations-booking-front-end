@@ -18,7 +18,7 @@ const DesData = [
   {
     image:
       './three.jpg',
-    title: 'Desert Experience',
+    title: 'Desert',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
 ];
@@ -26,24 +26,30 @@ const DesData = [
 const Slides = () => (
   <div className="container">
     <div className="row">
-      <Carousel>
-        <Carousel.Item interval={1500}>
+      <Carousel variant="dark">
+        <Carousel.Item interval={5000}>
 
           <CardGroup>
             {DesData.map((data) => (
               <Card key={data.title}>
-                <Card.Img variant="top" src={data.image} alt="Card  cap" />
+                <Card.Img className="rounded-circle" variant="top" src={data.image} alt="Card  cap" />
                 <Card.Body>
-                  <Card.Title>{data.title}</Card.Title>
+                  <Card.Title>
+                    <h4 className="d-flex justify-content-center ">
+                      {data.title}
+                    </h4>
+                  </Card.Title>
                   <Card.Text>
-                    {data.text}
+                    <small>
+                      {data.text}
+                    </small>
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   <div className="d-flex justify-content-center">
-                    <i className="fa fa-facebook-official" />
-                    <i className="fa fa-twitter" />
-                    <i className="fa fa-linkedin-square" />
+                    <i className="fa fa-facebook-official fa-lg" />
+                    <i className="fa fa-twitter fa-lg" />
+                    <i className="fa fa-linkedin-square fa-lg" />
                   </div>
                 </Card.Footer>
               </Card>
@@ -52,7 +58,7 @@ const Slides = () => (
           </CardGroup>
 
         </Carousel.Item>
-        <Carousel.Item interval={1500}>
+        <Carousel.Item interval={5000}>
           <CardGroup>
             <Card>
               <Card.Img variant="top" src="./one.jpg" alt="Card  cap" />
@@ -63,7 +69,7 @@ const Slides = () => (
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center border-none">
                   <i className="fa fa-facebook-official" />
                   <i className="fa fa-twitter" />
                   <i className="fa fa-linkedin-square" />
