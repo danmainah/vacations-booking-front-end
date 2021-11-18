@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import { Form, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import styles from './reservation.module.css';
+import styles from '../styles/reservation.module.css';
 // import { createReservations } from '../redux/reservations/reservationReducer';
 
 export default function Reservation(props) {
