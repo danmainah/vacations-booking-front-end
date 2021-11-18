@@ -4,9 +4,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import { Form, Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/reservation.module.css';
-// import { createReservations } from '../redux/reservations/reservationReducer';
+import postReservationThunk from '../helpers/postReservation';
 
 export default function Reservation(props) {
   const [startDate, setStartDate] = useState(null);
@@ -15,11 +15,11 @@ export default function Reservation(props) {
   const destinationPassed = destination !== 'default';
   destination = destination === 'default' ? 'Bora Bora' : destination;
   const [chosenDestination, setChosenDestination] = useState(destination);
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
+  const username = useSelector((state) => state.user.username);
+  const token = useSelector((state) => state.user.token);
 
-  const id = useSelector((state) => state.user.details);
-  const username = 'defaultUser';
   // const destinations = useSelector((state) => state.destinations);
   const destinations = [
     {
@@ -47,17 +47,8 @@ export default function Reservation(props) {
 
   const setBackgroundImg = () => {
     const url = destinations.filter((place) => place.name === chosenDestination);
-    console.log(url[0].image_url);
     return url[0].image_url;
   };
-
-  // const style = {
-  //   background: `url(${setBackgroundImg()}) no-repeat center center fixed`,
-  //   backgroundSize: 'cover',
-  //   opacity: 0.7,
-  //   backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  //   margin: 'auto auto',
-  // };
 
   const [bgImg, setBgImg] = useState(setBackgroundImg());
 
@@ -76,21 +67,12 @@ export default function Reservation(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(moment(endDate).format('l'));
-    console.log(
-      {
-        user_id: id,
-        destination_id: chosenDestination,
-        startingDay: moment(startDate).format('l'),
-        endingDay: moment(endDate).format('l'),
-      },
-    );
-    // dispatch(createReservations({
-    //   user_id: username,
-    //   destination_id: chosenDestination,
-    //   startingDay: moment(startDate).format('l'),
-    //   endingDay: moment(endDate).format('l'),
-    // }));
+    const data = {
+      destination_id: 1,
+      startingDay: moment(startDate).format('YYYY-MM-DD'),
+      endingDay: moment(endDate).format('YYYY-MM-DD'),
+    };
+    dispatch(postReservationThunk(token, data));
   };
 
   return (
