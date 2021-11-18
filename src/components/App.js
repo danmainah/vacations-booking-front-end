@@ -1,5 +1,4 @@
 import '../styles/App.css';
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Register from './Register';
@@ -9,7 +8,7 @@ import Reservation from './Reservation';
 import store from '../redux/store';
 
 const App = () => (
-  <Provider store={store}>
+  <div className="App">
     <Router>
       <Routes>
         <Route exact path="/" element={<Destinations />} />
@@ -19,7 +18,7 @@ const App = () => (
         <Route path="/reserve" element={<Reservation />} />
       </Routes>
     </Router>
-  </Provider>
+  </div>
 );
 
 export default App;
