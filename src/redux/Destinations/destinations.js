@@ -1,19 +1,22 @@
-import { getDestinations } from '../../helpers/getDestinationData';
+const GET_DESTINATIONS = 'vacations-booking-front-end/Destination/GET_DESTINATIONS';
 
-const FETCH_DATA = 'FETCH_DATA';
-const initialState = [];
+const initialValue = {};
 
-export const fetchDestinations = () => async (dispatch) => {
-  const destinations = await getDestinations();
-  dispatch({ type: FETCH_DATA, payload: destinations });
-};
+const getDestination = (payload) => ({
+  type: GET_DESTINATIONS,
+  payload,
+});
 
-export const destinationsReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case FETCH_DATA:
-      return payload;
+const destinationReducer = (state = initialValue, action) => {
+  switch (action.type) {
+    case GET_DESTINATIONS:
+      return {
+        ...state,
+        destination: action.payload,
+      };
     default:
       return state;
   }
 };
+
+export { destinationReducer, getDestination };
