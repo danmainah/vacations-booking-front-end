@@ -168,7 +168,7 @@ export default function Reservation(props) {
         )}
       </div>
       )}
-      {submitted && <p className="h4 text-white text-center">Reservation successfully created!</p>}
+      {submitted && <p className="h4 text-success text-center">Reservation successfully created!</p>}
     </div>
   );
 }
