@@ -3,8 +3,9 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { reservationReducer } from './Reservations/reservation';
 import authReducer from './Auth/auth';
-import { destinationsReducer } from './Destinations/destinations';
+import { destinationReducer } from './Destinations/destinations';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +13,8 @@ const persistConfig = {
 };
 
 const reducer = combineReducers({
-  destinations: destinationsReducer,
+  reservations: reservationReducer,
+  destinations: destinationReducer,
   user: authReducer,
 });
 const persistedReducer = persistReducer(persistConfig, reducer);
