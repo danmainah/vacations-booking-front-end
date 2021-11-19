@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -22,42 +22,42 @@ export default function Reservation(props) {
   const username = useSelector((state) => state.user.username);
   const token = useSelector((state) => state.user.token);
 
-  const destinations = useSelector((state) => state.destinations.destination);
-  destinations.forEach((des, idx) => ({ ...des, id: idx }));
-  // const destinations = [
-  //   {
-  //     id: 1,
-  //     name: 'Bora Bora',
-  //     location: 'French Polynesia',
-  //     image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638534/bora-bora-island_tcyoev.jpg',
-  //     price_per_day: '150',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Rome',
-  //     location: 'Italy',
-  //     image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638500/Rome-Italy_isahvk.jpg',
-  //     price_per_day: '100',
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Gracier National Park',
-  //     location: 'USA',
-  //     image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636573679/sample.jpg',
-  //     price_per_day: '100',
-  //   },
-  // ];
+  // const destinations = useSelector((state) => state.destinations.destination);
+  // destinations.forEach((des, idx) => ({ ...des, id: idx }));
+  const destinations = [
+    {
+      id: 1,
+      name: 'Bora Bora',
+      location: 'French Polynesia',
+      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638534/bora-bora-island_tcyoev.jpg',
+      price_per_day: '150',
+    },
+    {
+      id: 2,
+      name: 'Rome',
+      location: 'Italy',
+      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638500/Rome-Italy_isahvk.jpg',
+      price_per_day: '100',
+    },
+    {
+      id: 3,
+      name: 'Gracier National Park',
+      location: 'USA',
+      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636573679/sample.jpg',
+      price_per_day: '100',
+    },
+  ];
 
-  const setBackgroundImg = () => {
-    const url = destinations.filter((place) => place.name === chosenDestination);
-    return url[0].image_url;
-  };
+  // const setBackgroundImg = () => {
+  //   const url = destinations.filter((place) => place.name === chosenDestination);
+  //   return url[0].image_url || url.image_url;
+  // };
 
-  const [bgImg, setBgImg] = useState(setBackgroundImg());
+  // const [bgImg, setBgImg] = useState(setBackgroundImg());
 
-  useEffect(() => {
-    setBgImg(setBackgroundImg());
-  }, [chosenDestination]);
+  // useEffect(() => {
+  //   setBgImg(setBackgroundImg());
+  // }, [chosenDestination]);
 
   const handleStartDate = (date) => {
     setStartDate(date);
@@ -86,9 +86,9 @@ export default function Reservation(props) {
       {token ? (
         <div
           className={styles.wrapper}
-          style={{
-            backgroundImage: `url(${bgImg})`,
-          }}
+          // style={{
+          //   backgroundImage: `url(${bgImg})`,
+          // }}
         >
           {!submitted && (
           <div>
