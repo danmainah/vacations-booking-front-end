@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Slides from './Slides';
-import getDestinationThunk from '../helpers/getDestinationData';
 
 const Destinations = () => {
   let destinations;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getDestinationThunk());
-  }, [dispatch]);
 
   const state = useSelector((state) => state.destinations.destination);
 
