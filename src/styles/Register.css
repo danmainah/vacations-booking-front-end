@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,900;1,700&display=swap');
+
 .register {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  background-color: #96BF01;
+  background-color: #96bf01;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -22,7 +23,7 @@ p {
 }
 
 hr {
-  border-top: 1px solid rgb(3, 221, 3)01;
+  border-top: 1px solid #fff;
   width: 50%;
   margin: 0 auto;
 }
