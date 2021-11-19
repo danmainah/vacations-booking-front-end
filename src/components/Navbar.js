@@ -1,28 +1,76 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Nav } from 'react-bootstrap';
+import {
+  FaTwitter, FaFacebookF, FaGooglePlusG, FaVimeoV, FaPinterestP,
+} from 'react-icons/fa';
 import styles from '../styles/Navbar.module.css';
 
-const Navbar = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { location } = props;
+const Navbar = () => {
+  const activeStyle = {
+    color: 'white',
+    backgroundColor: 'lightgreen',
+  };
 
   return (
     <nav className={styles.wrapper}>
-      <div className={styles.logo} />
-      <div className={styles.menu}>
-        <NavLink exact to="/" activeClassName="activee">Destination&apos;s</NavLink>
-        <NavLink to="/home" activeClassName="activeMenuItem">Make reservation</NavLink>
-        <NavLink to="/register" activeClassName={styles.menu.active}>My reservations</NavLink>
-        <NavLink to="/login" activeClassName="active">Add destination</NavLink>
-        <NavLink to="/dvdv" activeClassName="active">Delete destination</NavLink>
+      <div className={styles.logoWrapper}>
+        <div className={styles.logo} />
       </div>
-      <Nav activeKey={location.pathname}>
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/one">One</Nav.Link>
-        <Nav.Link href="/two">Two</Nav.Link>
-      </Nav>
+      <div className={styles.menu}>
+        <NavLink
+          to="/"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          DESTINATIONS
+
+        </NavLink>
+        <NavLink
+          to="/home"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          MAKE RESERVATIONS
+
+        </NavLink>
+        <NavLink
+          to="/reservations"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+
+          // style={({ isActive }) => ({
+          //   color: isActive ? 'white' : 'black',
+          //   backgroundColor: isActive ? 'lightgreen' : 'white',
+
+          // })}
+        >
+          MY RESERVATIONS
+
+        </NavLink>
+        <NavLink
+          to="/login"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          ADD DESTINATION
+
+        </NavLink>
+        <NavLink
+          to="/dvdv"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          DELETE DESTINATION
+
+        </NavLink>
+      </div>
+      <div className={styles.footer}>
+        <div className="socialwrapper d-flex">
+          <FaTwitter style={{ fontSize: '30px' }} />
+          <FaFacebookF style={{ fontSize: '30px' }} />
+          <FaGooglePlusG style={{ fontSize: '30px' }} />
+          <FaVimeoV style={{ fontSize: '30px' }} />
+          <FaPinterestP style={{ fontSize: '30px' }} />
+        </div>
+
+        <div className="mt-3">&copy; 2021 World Travel Group</div>
+      </div>
     </nav>
   );
 };
