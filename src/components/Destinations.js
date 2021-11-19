@@ -4,7 +4,7 @@ import Slides from './Slides';
 import getDestinationThunk from '../helpers/getDestinationData';
 
 const Destinations = () => {
-  let destinations;
+  let destinations = [];
   const dispatch = useDispatch();
 
   useEffect(() => {
