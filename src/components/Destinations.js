@@ -6,21 +6,15 @@ import Slides from './Slides';
 import getDestinationThunk from '../helpers/getDestinationData';
 
 const Destinations = () => {
-  // let destinations = [];
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getDestinationThunk());
   }, [dispatch]);
 
-  const state = useSelector((state) => state.destinations.destination);
-  console.log(state);
-  // if (state) {
-  //   destinations = state.map((dest) => (
-  //     <h1 key={dest.image_url}>{dest.location}</h1>
-  //   ));
-  // }
-
+  const data = useSelector((state) => state.destinations.destination);
+  const state = data.sort(() => 0.5 - Math.random());
+  const state2 = state.sort(() => 0.5 - Math.random());
   return (
     <div className="container">
       <div className="align-middle">
@@ -30,15 +24,51 @@ const Destinations = () => {
           <Carousel variant="dark">
             <Carousel.Item interval={5000}>
               <CardGroup className="">
-                {state.map((data) => (
-                  <Slides key={data.id} data={data} />
+                {state.slice(0, 3).map((data) => (
+                  <Slides key={data.id} info={data} />
                 ))}
               </CardGroup>
             </Carousel.Item>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
-                {state.map((data) => (
-                  <Slides key={data.id} data={data} />
+                {state2.slice(0, 3).map((data) => (
+                  <Slides key={data.id} info={data} />
+                ))}
+              </CardGroup>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+        <div className="row d-none d-md-block d-lg-none">
+          <Carousel variant="dark">
+            <Carousel.Item interval={5000}>
+              <CardGroup className="">
+                {state.slice(0, 2).map((data) => (
+                  <Slides key={data.id} info={data} />
+                ))}
+              </CardGroup>
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <CardGroup className="">
+                {state2.slice(0, 2).map((data) => (
+                  <Slides key={data.id} info={data} />
+                ))}
+              </CardGroup>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+        <div className="row d-md-none">
+          <Carousel variant="dark">
+            <Carousel.Item interval={5000}>
+              <CardGroup className="">
+                {state.slice(0, 1).map((data) => (
+                  <Slides key={data.id} info={data} />
+                ))}
+              </CardGroup>
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <CardGroup className="">
+                {state2.slice(0, 1).map((data) => (
+                  <Slides key={data.id} info={data} />
                 ))}
               </CardGroup>
             </Carousel.Item>
