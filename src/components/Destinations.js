@@ -14,7 +14,6 @@ const Destinations = () => {
 
   const data = useSelector((state) => state.destinations.destination);
   const state = data.sort(() => 0.5 - Math.random());
-  const state2 = state.sort(() => 0.5 - Math.random());
   return (
     <div className="container">
       <div className="align-middle">
@@ -31,7 +30,7 @@ const Destinations = () => {
             </Carousel.Item>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
-                {state2.slice(0, 3).map((data) => (
+                {state.slice(0, 3).map((data) => (
                   <Slides key={data.id} info={data} />
                 ))}
               </CardGroup>
@@ -49,7 +48,7 @@ const Destinations = () => {
             </Carousel.Item>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
-                {state2.slice(0, 2).map((data) => (
+                {state.slice(0, 2).map((data) => (
                   <Slides key={data.id} info={data} />
                 ))}
               </CardGroup>
@@ -67,7 +66,7 @@ const Destinations = () => {
             </Carousel.Item>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
-                {state2.slice(0, 1).map((data) => (
+                {state.slice(0, 1).map((data) => (
                   <Slides key={data.id} info={data} />
                 ))}
               </CardGroup>
