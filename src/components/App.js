@@ -8,24 +8,26 @@ import Login from './Login';
 import Destinations from './Destinations';
 import DestForm from './addDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
+
+const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadDestinationsThunk());
   }, [dispatch]);
-
-const App = () => (
-  <div className="App">
-    <Router>
-      <Routes>
-        <Route path="/dest" element={<DestForm />} />
-        <Route exact path="/" element={<Destinations />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-    </Router>
-  </div>
-);
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/dest" element={<DestForm />} />
+          <Route exact path="/" element={<Destinations />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
 
 export default App;
