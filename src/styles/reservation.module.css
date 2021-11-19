@@ -9,8 +9,8 @@ html {
 
 .wrapper {
   color: white;
-
-  background: url("https://images.unsplash.com/photo-1601871925712-3c803d50fa72?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")
+  background:
+    url("https://images.unsplash.com/photo-1601871925712-3c803d50fa72?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")
     no-repeat center center fixed;
   background-repeat: no-repeat;
   background-position: center center;
