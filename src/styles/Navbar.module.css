@@ -1,0 +1,45 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 5px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 300px;
+}
+
+.logo {
+  width: 80%;
+  height: 200px;
+  background: url("https://www.graphicsprings.com/filestorage/stencils/21307b9cf1e41fb9de16dc2629072527.png?width=500&height=500")
+    center center;
+}
+
+.menu {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.menu > a {
+  list-style-type: none;
+  text-decoration: none;
+  display: block;
+  padding: 20px 10px 20px 10px;
+  color: black;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.menu > a:active {
+  color: white;
+  background-color: lightgreen !important;
+}
+
+.active {
+  color: white !important;
+  background-color: lightgreen !important;
+}

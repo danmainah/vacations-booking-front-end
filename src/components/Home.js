@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navbar } from 'react-bootstrap';
 import { logOutUser } from '../redux/Auth/auth';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       {loggedIn ? (
         <div>
           <div>

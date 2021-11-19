@@ -11,6 +11,7 @@ import store from '../redux/store';
 const App = () => (
   <Provider store={store}>
     <Router>
+      <Navbar />
       <Routes>
         <Route exact path="/" element={<Destinations />} />
         <Route path="/register" element={<Register />} />
@@ -18,6 +19,7 @@ const App = () => (
         <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
+
   </Provider>
 );
 
