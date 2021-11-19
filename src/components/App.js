@@ -1,23 +1,31 @@
 import { useEffect } from 'react';
 import '../styles/App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Register from './Register';
+import Login from './Login';
 import Destinations from './Destinations';
-import DeleteDestinations from './DeleteDestinations';
-import { fetchDestinations } from '../redux/Destinations/destinations';
+import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchDestinations());
+    dispatch(loadDestinationsThunk());
   }, [dispatch]);
 
   return (
-    <Router>
-      <Destinations />
-      <DeleteDestinations />
-    </Router>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Destinations />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 
