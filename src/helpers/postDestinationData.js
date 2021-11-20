@@ -1,3 +1,5 @@
+import '../styles/postForm.css';
+
 const destinationUrl = 'http://localhost:3000/api/v1/destinations';
 const token = localStorage.getItem('token');
 // eslint-disable-next-line
