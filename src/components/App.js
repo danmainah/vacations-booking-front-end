@@ -1,26 +1,34 @@
+import { useEffect } from 'react';
 import '../styles/App.css';
-import { Provider } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
+import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 import Navbar from './Navbar';
-import store from '../redux/store';
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Destinations />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-    </Router>
+const App = () => {
+  const dispatch = useDispatch();
 
-  </Provider>
-);
+  useEffect(() => {
+    dispatch(loadDestinationsThunk());
+  }, [dispatch]);
+
+  return (
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Destinations />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
 
 export default App;

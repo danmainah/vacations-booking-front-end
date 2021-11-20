@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  background-color: #fff;
+  margin: 10px;
+  padding: 20px;
 }
 .activee {
   color: white !important;
