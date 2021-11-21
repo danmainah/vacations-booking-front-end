@@ -18,11 +18,11 @@ const Navbar = () => (
       </div>
       <div className={styles.footer}>
         <div className="socialwrapper d-flex">
-          <FaTwitter style={{ fontSize: '30px' }} />
-          <FaFacebookF style={{ fontSize: '30px' }} />
-          <FaGooglePlusG style={{ fontSize: '30px' }} />
-          <FaVimeoV style={{ fontSize: '30px' }} />
-          <FaPinterestP style={{ fontSize: '30px' }} />
+          <FaTwitter style={{ fontSize: '25px' }} />
+          <FaFacebookF style={{ fontSize: '25px' }} />
+          <FaGooglePlusG style={{ fontSize: '25px' }} />
+          <FaVimeoV style={{ fontSize: '25px' }} />
+          <FaPinterestP style={{ fontSize: '25px' }} />
         </div>
 
         <div className="mt-3">&copy; 2021 World Travel Group</div>

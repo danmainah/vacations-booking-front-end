@@ -23,8 +23,7 @@
 .logo {
   width: 80%;
   height: 200px;
-  background:
-    url("https://cdn.iconscout.com/icon/premium/png-256-thumb/international-tour-4151104-3439382.png")
+  background: url("https://cdn.iconscout.com/icon/premium/png-256-thumb/international-tour-4151104-3439382.png")
     center center;
 }
 
@@ -48,7 +47,7 @@
   padding: 20px 30px 20px 10px;
   color: black;
   font-weight: bolder;
-  font-size: larger;
+  font-size: large;
 }
 
 .footer {
@@ -66,7 +65,7 @@
   padding: 20px 30px 20px 10px;
   color: black;
   font-weight: bolder;
-  font-size: larger;
+  font-size: large;
   border: 0;
   background-color: white;
   text-align: left;
