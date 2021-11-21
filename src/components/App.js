@@ -7,6 +7,7 @@ import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
+import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/destinations/delete" element={<DeleteDestinations />} />
         </Routes>
       </Router>
     </div>

@@ -1,64 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import {
   FaTwitter, FaFacebookF, FaGooglePlusG, FaVimeoV, FaPinterestP,
 } from 'react-icons/fa';
 import styles from '../styles/Navbar.module.css';
+import MenuItems from './MenuItems';
+import NavMobile from './NavMobile';
 
-const Navbar = () => {
-  const activeStyle = {
-    color: 'white',
-    backgroundColor: 'lightgreen',
-  };
-
-  return (
-    <nav className={styles.wrapper}>
+const Navbar = () => (
+  <header>
+    <nav className={styles.wrapper} id="desktop">
       <div className={styles.logoWrapper}>
         <div className={styles.logo} />
       </div>
       <div className={styles.menu}>
-        <NavLink
-          to="/"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
-          DESTINATIONS
-
-        </NavLink>
-        <NavLink
-          to="/home"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
-          MAKE RESERVATIONS
-
-        </NavLink>
-        <NavLink
-          to="/reservations"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-
-          // style={({ isActive }) => ({
-          //   color: isActive ? 'white' : 'black',
-          //   backgroundColor: isActive ? 'lightgreen' : 'white',
-
-          // })}
-        >
-          MY RESERVATIONS
-
-        </NavLink>
-        <NavLink
-          to="/login"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
-          ADD DESTINATION
-
-        </NavLink>
-        <NavLink
-          to="/dvdv"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
-          DELETE DESTINATION
-
-        </NavLink>
+        <MenuItems />
       </div>
       <div className={styles.footer}>
         <div className="socialwrapper d-flex">
@@ -72,6 +28,7 @@ const Navbar = () => {
         <div className="mt-3">&copy; 2021 World Travel Group</div>
       </div>
     </nav>
-  );
-};
+    <NavMobile />
+  </header>
+);
 export default Navbar;
