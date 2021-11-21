@@ -2,9 +2,44 @@
   background-color: #fff;
   margin: 10px;
   padding: 20px;
+  display: flex;
 }
 
-.activee {
-  color: white !important;
-  background-color: lightgreen !important;
+@media (max-width: 767px) {
+  #desktop {
+    display: none;
+  }
+  .App {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  #mobile {
+    display: none;
+  }
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.me-auto {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+.me-auto > a {
+  list-style-type: none;
+  text-decoration: none;
+  display: block;
+  padding: 20px 30px 20px 10px;
+  color: black;
+  font-weight: bolder;
+  font-size: larger;
 }
