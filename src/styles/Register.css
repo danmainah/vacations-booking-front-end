@@ -3,8 +3,7 @@
 .register {
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  background:
-    linear-gradient(rgba(150, 191, 1, 0.8), rgba(150, 191, 1, 0.8)),
+  background: linear-gradient(rgba(150, 191, 1, 0.8), rgba(150, 191, 1, 0.8)),
     url("https://images.unsplash.com/photo-1601871925712-3c803d50fa72?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
   background-repeat: no-repeat;
   background-position: center center;
