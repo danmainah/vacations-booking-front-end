@@ -16,7 +16,7 @@ export default function MenuItems() {
 
   const activeStyle = {
     color: 'white',
-    backgroundColor: 'lightgreen',
+    backgroundColor: '#97BF11',
   };
 
   return (
