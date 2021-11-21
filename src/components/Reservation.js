@@ -4,7 +4,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Navigate } from 'react-router-dom';
 import moment from 'moment';
-import { Form, Button } from 'react-bootstrap';
+import {
+  Form, Button, Row, Col,
+} from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/reservation.module.css';
 import postReservationThunk from '../helpers/postReservation';
@@ -91,68 +93,93 @@ export default function Reservation(props) {
           // }}
         >
           {!submitted && (
-          <div>
-            <h1>Reservation form</h1>
-            <Form onSubmit={handleSubmit}>
+          <div className={styles.formWrapper}>
+            <h1 className={styles.pyramid}>BOOK YOUR VACATION</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum non orci at lacus ullamcorper blandit. Aenean aliquet pretium nisl,
+              pharetra vulputate odio euismod a. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
+              Suspendisse potenti. Quisque ornare posuere accumsan. Fusce malesuada velit
+              in lacus convallis,
+              a malesuada nisi mollis. Quisque quis bibendum lacus.
+
+            </p>
+            <Form onSubmit={handleSubmit} className={styles.form}>
+
               <Form.Group className="mb-3" controlId="user">
-                <Form.Label>User</Form.Label>
                 <Form.Control type="text" value={username} disabled />
               </Form.Group>
-
-              {destinationPassed
-                ? (
-                  <Form.Group className="mb-3" controlId="destination">
-                    <Form.Label>Destination</Form.Label>
-                    <Form.Control type="text" value={destination} disabled />
+              <Row>
+                <Col xs={6}>
+                  <Form.Group className="mb-3" controlId="startDate">
+                    <div className="mb-3">
+                      <DatePicker
+                        placeholderText="Pick a Start Date"
+                        class="form-control"
+                        id="startDatePicker"
+                        selected={startDate}
+                        minDate={new Date()}
+                        onChange={handleStartDate}
+                      />
+                    </div>
                   </Form.Group>
-                ) : (
-                  <Form.Group className="mb-3" controlId="destination">
-                    <Form.Label>Destination</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={chosenDestination}
-                      onChange={(e) => {
-                        setChosenDestination(e.target.value);
-                      }}
-                    >
-                      {destinations.map(({ name, id }) => (
-                        <option
-                          value={name}
-                          key={id}
+                  {' '}
+
+                </Col>
+                <Col>
+                  <Form.Group className="mb-3" controlId="endDate">
+                    <DatePicker
+                      placeholderText="Pick an End Date"
+                      class="form-control"
+                      selected={endDate}
+                      minDate={startDate}
+                      onChange={handleEndDate}
+                    />
+                  </Form.Group>
+                  {' '}
+
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6}>
+                  {destinationPassed
+                    ? (
+                      <Form.Group className="" controlId="destination">
+                        <Form.Control type="text" value={destination} disabled />
+                      </Form.Group>
+                    ) : (
+                      <Form.Group className="" controlId="destination">
+                        <Form.Select
+                          id="target"
+                          value={chosenDestination}
+                          onChange={(e) => {
+                            setChosenDestination(e.target.value);
+                          }}
                         >
-                          {name}
-                        </option>
-                      ))}
-                    </Form.Control>
-                  </Form.Group>
-                )}
+                          {destinations.map(({ name, id }) => (
+                            <option
+                              value={name}
+                              key={id}
+                            >
+                              {name}
+                            </option>
+                          ))}
+                        </Form.Select>
+                      </Form.Group>
+                    )}
+                  {' '}
 
-              <Form.Group className="mb-3" controlId="startDate">
-                <Form.Label>Pick a Start Date:</Form.Label>
-                <div className="mb-3">
-                  <DatePicker
-                    class="form-control"
-                    id="startDatePicker"
-                    selected={startDate}
-                    minDate={new Date()}
-                    onChange={handleStartDate}
-                  />
-                </div>
-              </Form.Group>
+                </Col>
+                <Col>
+                  <Button variant="primary" type="submit" className={styles.btnForm}>
+                    Book Now
+                  </Button>
+                  {' '}
 
-              <Form.Group className="mb-3" controlId="endDate">
-                <Form.Label>Pick an End Date:</Form.Label>
-                <DatePicker
-                  class="form-control"
-                  selected={endDate}
-                  minDate={startDate}
-                  onChange={handleEndDate}
-                />
-              </Form.Group>
+                </Col>
+              </Row>
 
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
             </Form>
 
             {startDate && endDate && (
