@@ -1,0 +1,63 @@
+.wrapper {
+  color: white;
+  background: linear-gradient(rgba(150, 191, 1, 0.8), rgba(150, 191, 1, 0.8)),
+    url("https://images.unsplash.com/photo-1601871925712-3c803d50fa72?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: auto auto;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mainForm {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 30px auto;
+  justify-content: space-around;
+  height: 300px;
+}
+
+.loginFieldGroup {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.btnForm {
+  background-color: rgb(212, 207, 207);
+  color: #4d6300;
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  .mainForm {
+    width: 100%;
+  }
+
+  .loginFieldGroup {
+    width: 100%;
+  }
+}
