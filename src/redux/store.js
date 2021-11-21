@@ -5,7 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import { reservationReducer } from './Reservations/reservation';
 import authReducer from './Auth/auth';
-import { destinationReducer } from './Destinations/destinations';
+import { destinationsReducer } from './Destinations/destinations';
 
 const persistConfig = {
   key: 'root',
@@ -14,7 +14,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   reservations: reservationReducer,
-  destinations: destinationReducer,
+  destinations: destinationsReducer,
   user: authReducer,
 });
 const persistedReducer = persistReducer(persistConfig, reducer);
