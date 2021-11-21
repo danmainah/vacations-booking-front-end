@@ -26,21 +26,21 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
-          path="/home"
-          element={(
-            <PrivateRoute redirectTo="/login">
-              <Home />
-            </PrivateRoute>
+            path="/home"
+            element={(
+              <PrivateRoute redirectTo="/login">
+                <Home />
+              </PrivateRoute>
         )}
-        />
+          />
           <Route
-          path="/reserve"
-          element={(
-            <PrivateRoute redirectTo="/login">
-              <Reservation />
-            </PrivateRoute>
+            path="/reserve"
+            element={(
+              <PrivateRoute redirectTo="/login">
+                <Reservation />
+              </PrivateRoute>
         )}
-        />
+          />
         </Routes>
       </Router>
     </div>
