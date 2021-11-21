@@ -34,7 +34,7 @@ export default function Login() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="login">
       <div className={styles.mainForm}>
         <h1>LOG IN</h1>
         <div className={styles.loginFieldGroup}>
