@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../redux/Auth/auth';
+import '../styles/Register.css';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -40,10 +41,12 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <h1>Sign Up for an Account</h1>
+    <div className="register">
+      <h2>CREATE YOUR ACCOUNT</h2>
+      <hr />
+      <p>Sign up now and book desired destination</p>
       {errors ? <p>{Object.keys(errors) ? (`${Object.keys(errors)} ${Object.values(errors)}`) : errors}</p> : ''}
-      <form onSubmit={handleSubmit}>
+      <form className="form " onSubmit={handleSubmit}>
         <input
           placeholder="username"
           type="text"
