@@ -10,6 +10,13 @@ const handleError = (err) => {
   ));
 };
 
+export const isTokenExpired = () => {
+  const token = localStorage.getItem('token');
+  if (!token) return true;
+  const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+  return (Math.floor((new Date()).getTime() / 1000)) >= expiry;
+};
+
 export const authUser = async (data) => {
   const req = await (fetch(`${URL}users/sign_in`, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -37,6 +44,7 @@ export const authUser = async (data) => {
   if (res.token) {
     localStorage.setItem('token', res.token);
     const user = jwt(res.token);
+    console.log(user);
     res.details = user.sub;
     return res;
   }

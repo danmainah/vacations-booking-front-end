@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import {
   Form, Button, Row, Col,
@@ -10,6 +10,8 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/reservation.module.css';
 import postReservationThunk from '../helpers/postReservation';
+import { isTokenExpired } from '../helpers/authUser';
+import { logOutUser } from '../redux/Auth/auth';
 
 export default function Reservation(props) {
   const [startDate, setStartDate] = useState(null);
@@ -20,9 +22,19 @@ export default function Reservation(props) {
   destination = destination === 'default' ? 'Bora Bora' : destination;
   const [chosenDestination, setChosenDestination] = useState(destination);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const username = useSelector((state) => state.user.username);
   const token = useSelector((state) => state.user.token);
+
+  useEffect(() => {
+    const res = isTokenExpired();
+    if (res) {
+      localStorage.removeItem('token');
+      dispatch(logOutUser());
+      navigate('/login');
+    }
+  }, []);
 
   // const destinations = useSelector((state) => state.destinations.destination);
   // destinations.forEach((des, idx) => ({ ...des, id: idx }));
