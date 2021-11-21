@@ -7,13 +7,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.App {
-  background-color: #fff;
-  margin: 10px;
-  padding: 20px;
-  font-family: "Montserrat", sans-serif;
-}
-
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: white;
