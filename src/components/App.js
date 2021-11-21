@@ -6,6 +6,7 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
+import DestForm from './addDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
@@ -16,12 +17,12 @@ const App = () => {
   useEffect(() => {
     dispatch(loadDestinationsThunk());
   }, [dispatch]);
-
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
+          <Route path="/dest" element={<DestForm />} />
           <Route exact path="/" element={<Destinations />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
