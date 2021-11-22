@@ -10,7 +10,7 @@ const CANCEL_RESERVATION = 'vacation-booking-back-end/reservations/CANCEL_RESERV
 
 const initialState = [];
 
-const reservationReducer = (state=initialState, action={}) => {
+const reservationReducer = (state=initialState, action) => {
   switch(action.type) {
     case LOAD_RESERVATIONS:
       return action.payload;
