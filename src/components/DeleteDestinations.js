@@ -10,17 +10,25 @@ const DeleteDestinations = () => {
     dispatch(deleteThunkDestination(destinationId));
   };
   return (
-    <div className="position-absolute bottom-50 end-50">
+    <div className="align-middle">
+      <style type="text/css">
+        {`
+    .btn-flat {
+      background-color: #97BF11;
+      color: white;
+    }
+    `}
+      </style>
       <div>
         <h3 className="text-center mb-4"> My Destinations </h3>
       </div>
       <ul className="list-group">
         {destinations
         && destinations.map((destination) => (
-          <li className="list-group-item d-flex justify-content-between align-items-start" key={destination.id}>
+          <li className="list-group-item d-flex justify-content-between" key={destination.id}>
             {destination.name}
-            <Button variant="danger" className="ms-5" onClick={handleDelete}>
-              Remove destination
+            <Button variant="flat" className="ms-5" onClick={handleDelete}>
+              Remove
             </Button>
           </li>
         ))}
