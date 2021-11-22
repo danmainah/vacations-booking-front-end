@@ -3,8 +3,35 @@
 .App {
   background-color: #fff;
   margin: 10px;
-  padding: 20px;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+}
+
+.react-datepicker__input-container > input {
+  display: block;
+  width: 100%;
+  margin-right: 13px;
+  margin-left: 3px;
+  background:
+    url(https://img.favpng.com/7/5/16/calendar-icon-png-favpng-rQvJKhTsVSgVg5BzW3ZSPGKmN.jpg)
+    no-repeat 100%;
+  background-size: 30px;
+  background-position: 99% 3px;
+  height: 40px;
+  border-radius: 7px;
+  border: 2px solid white;
+  color: white;
+}
+
+#target,
+#user {
+  background-color: transparent;
+  border: 3px solid rgb(211, 235, 205);
+  outline: whitesmoke;
+  box-shadow: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: default;
   display: flex;
 }
 
@@ -55,4 +82,25 @@ button {
   color: black;
   font-weight: bolder;
   font-size: small;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+  padding-left: 3%;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
 }
