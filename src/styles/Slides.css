@@ -19,12 +19,13 @@ i {
 i.fa {
   display: inline-block;
   border-radius: 3rem;
-  box-shadow: 1px 1px #888;
+  box-shadow: 0 0 1px #888;
   padding: 0.5em 0.6em;
   margin: 0.6rem;
 }
 
-small.fa {
+small,
+.fa {
   color: rgb(131, 126, 126);
 }
 
