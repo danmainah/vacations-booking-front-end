@@ -9,6 +9,8 @@ import Destinations from './Destinations';
 import Reservation from './Reservation';
 import DestForm from './addDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
+import DeleteDestinations from './DeleteDestinations';
+import Navbar from './Navbar';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const App = () => {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/dest" element={<DestForm />} />
           <Route exact path="/" element={<Destinations />} />
@@ -26,6 +29,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/reserve" element={<Reservation />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/destinations/delete" element={<DeleteDestinations />} />
         </Routes>
       </Router>
     </div>
