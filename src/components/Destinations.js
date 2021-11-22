@@ -20,7 +20,7 @@ const Destinations = () => {
         <h4 className="d-flex justify-content-center">Latest Destinations</h4>
         <h5 className="d-flex justify-content-center"> Please select Favourite Destination </h5>
         <div className="row d-none d-lg-block">
-          <Carousel variant="dark">
+          <Carousel>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
                 {state.slice(0, 3).map((data) => (
@@ -38,7 +38,7 @@ const Destinations = () => {
           </Carousel>
         </div>
         <div className="row d-none d-md-block d-lg-none">
-          <Carousel variant="dark">
+          <Carousel>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
                 {state.slice(0, 2).map((data) => (
@@ -56,7 +56,7 @@ const Destinations = () => {
           </Carousel>
         </div>
         <div className="row d-md-none">
-          <Carousel variant="dark">
+          <Carousel>
             <Carousel.Item interval={5000}>
               <CardGroup className="">
                 {state.slice(0, 1).map((data) => (
