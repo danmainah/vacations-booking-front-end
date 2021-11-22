@@ -22,7 +22,7 @@ const postReservationThunk = (token, data) => async (dispatch) => {
   if (res && res.status !== 'Error!') {
     dispatch(postReservation(res));
   } else {
-    dispatch(getErrors(res.messages));
+    dispatch(getErrors(res.message));
   }
 };
 

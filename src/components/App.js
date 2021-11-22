@@ -7,7 +7,6 @@ import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
 import Reservation from './Reservation';
-import PrivateRoute from '../helpers/privateRoute';
 import DestForm from './addDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 
@@ -25,22 +24,8 @@ const App = () => {
           <Route exact path="/" element={<Destinations />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/home"
-            element={(
-              <PrivateRoute redirectTo="/login">
-                <Home />
-              </PrivateRoute>
-        )}
-          />
-          <Route
-            path="/reserve"
-            element={(
-              <PrivateRoute redirectTo="/login">
-                <Reservation />
-              </PrivateRoute>
-        )}
-          />
+          <Route path="/reserve" element={<Reservation />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </div>

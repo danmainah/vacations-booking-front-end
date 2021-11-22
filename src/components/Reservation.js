@@ -12,6 +12,7 @@ import styles from '../styles/reservation.module.css';
 import postReservationThunk from '../helpers/postReservation';
 import { isTokenExpired } from '../helpers/authUser';
 import { logOutUser } from '../redux/Auth/auth';
+import { clearStatus } from '../redux/Reservations/reservation';
 
 export default function Reservation(props) {
   const [startDate, setStartDate] = useState(null);
@@ -26,6 +27,7 @@ export default function Reservation(props) {
 
   const username = useSelector((state) => state.user.username);
   const token = useSelector((state) => state.user.token);
+  const regStatus = useSelector((state) => state.reservations);
 
   useEffect(() => {
     const res = isTokenExpired();
@@ -34,33 +36,10 @@ export default function Reservation(props) {
       dispatch(logOutUser());
       navigate('/login');
     }
+    dispatch(clearStatus());
   }, []);
 
-  // const destinations = useSelector((state) => state.destinations.destination);
-  // destinations.forEach((des, idx) => ({ ...des, id: idx }));
-  const destinations = [
-    {
-      id: 1,
-      name: 'Bora Bora',
-      location: 'French Polynesia',
-      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638534/bora-bora-island_tcyoev.jpg',
-      price_per_day: '150',
-    },
-    {
-      id: 2,
-      name: 'Rome',
-      location: 'Italy',
-      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636638500/Rome-Italy_isahvk.jpg',
-      price_per_day: '100',
-    },
-    {
-      id: 3,
-      name: 'Gracier National Park',
-      location: 'USA',
-      image_url: 'https://res.cloudinary.com/dqdrsilxz/image/upload/v1636573679/sample.jpg',
-      price_per_day: '100',
-    },
-  ];
+  const destinations = useSelector((state) => state.destinations.destinations);
 
   // const setBackgroundImg = () => {
   //   const url = destinations.filter((place) => place.name === chosenDestination);
@@ -97,7 +76,7 @@ export default function Reservation(props) {
 
   return (
     <>
-      {token ? (
+      {(token && username) ? (
         <div
           className={styles.wrapper}
           // style={{
@@ -210,7 +189,22 @@ export default function Reservation(props) {
             )}
           </div>
           )}
-          {submitted && <p className="h4 text-success text-center">Reservation successfully created!</p>}
+          {submitted && regStatus.success && (
+          <div className="h4 text-success m-auto">
+            {regStatus.success.message}
+            . Your total cost is
+            {' $'}
+            {regStatus.success.total_cost}
+          </div>
+          )}
+          {submitted && regStatus.errors && (
+          <div className="h4 text-danger m-auto">
+            {regStatus.errors[0]}
+            {' '}
+            Please try again.
+          </div>
+          )}
+
         </div>
       ) : <Navigate to="/login" />}
     </>
