@@ -1,5 +1,7 @@
+const base_url = 'http://localhost:3000';
+
 export const getReservations = async (authToken) => {
-  const response = await fetch('http://localhost:port_number/api/v1/reservations', {
+  const response = await fetch(`${base_url}/api/v1/reservations`, {
     method: 'GET',
     headers: {
       Authorization: authToken,
@@ -10,7 +12,7 @@ export const getReservations = async (authToken) => {
 };
 
 export const postReservation = async (authToken, destinationId, startDate, endDate) => {
-  const response = await fetch('http://localhost:port_number/api/v1/reservations', {
+  const response = await fetch(`${base_url}/api/v1/reservations`, {
     method: 'POST',
     headers: {
       Authorization: authToken,
@@ -25,7 +27,7 @@ export const postReservation = async (authToken, destinationId, startDate, endDa
 };
 
 export const deleteReservation = async (authToken, id) => {
-  await fetch('http://localhost:port_number/api/v1/reservations/destination_id', {
+  await fetch(`${base_url}/api/v1/reservations/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: authToken,
@@ -34,5 +36,5 @@ export const deleteReservation = async (authToken, id) => {
       destination_id: id,
     }),
   });
-  return id;
+  return response.json();;
 };
