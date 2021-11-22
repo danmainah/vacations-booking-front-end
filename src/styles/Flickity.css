@@ -153,13 +153,25 @@ https://flickity.metafizzy.co
   }
 }
 
+@media (min-width: 768px) {
+  .flickity-slider {
+    left: -10% !important;
+  }
+}
+
 @media (min-width: 922px) {
+  .flickity-slider {
+    left: -20% !important;
+  }
+}
+
+@media (min-width: 1200px) {
   .flickity-slider {
     left: -30% !important;
   }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 1400px) {
   .flickity-slider {
     left: -35% !important;
   }

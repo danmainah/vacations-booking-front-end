@@ -16,7 +16,7 @@ const Destinations = () => {
   const data = useSelector((state) => state.destinations.destinations);
   const state = data.sort(() => 0.5 - Math.random());
   return (
-    <div className="">
+    <div className="container-fluid">
       <div className="align-middle">
         <h4 className="d-flex justify-content-center">Latest Destinations</h4>
         <h5 className="d-flex justify-content-center">

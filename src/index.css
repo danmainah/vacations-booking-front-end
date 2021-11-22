@@ -33,11 +33,3 @@ code {
     'Courier New',
     monospace;
 }
-
-.app {
-  background-color: rgb(27, 26, 26);
-  width: 100%;
-  height: 100%;
-  margin: 20px;
-  border: 4px solid pink;
-}
