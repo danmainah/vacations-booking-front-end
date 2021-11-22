@@ -1,7 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,900;1,700&display=swap");
+
 .App {
   background-color: #fff;
   margin: 10px;
   padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+}
+
+#login > input,
+button {
+  border-radius: 20px !important;
+  line-height: 190% !important;
+  text-align: center;
   display: flex;
 }
 

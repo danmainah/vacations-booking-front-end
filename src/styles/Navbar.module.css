@@ -35,10 +35,6 @@
   margin-top: 50px;
   width: 85%;
   margin-left: 15%;
-
-  @media (max-width: 991px) {
-    display: none;
-  }
 }
 
 .menu > a {
@@ -69,5 +65,14 @@
   font-size: large;
   border: 0;
   background-color: white;
-  text-align: left;
+  text-align: left !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@media (max-width: 991px) {
+  .buttonStyle {
+    font-size: small !important;
+  }
 }
