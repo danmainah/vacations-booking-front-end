@@ -201,6 +201,15 @@ export default function Reservation(props) {
           <div className="h4 text-danger m-auto">
             {regStatus.errors[0]}
             {' '}
+            {Object.entries(regStatus.errors[1]).map((key) => (
+              <p key="key" className="h5">
+                {key[0]}
+                {' -  '}
+                {key[1]}
+              </p>
+            ))}
+            {' '}
+
             Please try again.
           </div>
           )}

@@ -5,6 +5,7 @@
   margin: 10px;
   padding: 20px;
   font-family: "Montserrat", sans-serif;
+  display: flex;
 }
 
 ::-webkit-input-placeholder {
