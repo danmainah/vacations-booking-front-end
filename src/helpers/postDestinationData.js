@@ -13,7 +13,7 @@ const postDestination = async (body) => {
     }),
   });
   const response = await request.json();
-  console.log(response);
+  return response;
 };
 
 export default postDestination;
