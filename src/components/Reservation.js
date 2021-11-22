@@ -29,6 +29,7 @@ export default function Reservation(props) {
   const [chosenDestination, setChosenDestination] = useState(destination);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log(chosenDestination);
 
   useEffect(() => {
     const res = isTokenExpired();
@@ -67,12 +68,8 @@ export default function Reservation(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id;
-    if (destinationPassed) {
-      id = chosenDestination;
-    } else {
-      id = findDestID(chosenDestination);
-    }
+
+    const id = findDestID(chosenDestination);
 
     const data = {
       destination_id: id,
