@@ -1,0 +1,42 @@
+.card {
+  width: 20rem;
+  height: 25rem;
+  border: none;
+  padding: 2%;
+}
+
+.card-footer {
+  border: none;
+  background: none;
+  position: sticky;
+  bottom: 0;
+}
+
+i {
+  padding: 1rem;
+}
+
+i.fa {
+  display: inline-block;
+  border-radius: 3rem;
+  box-shadow: 1px 1px #888;
+  padding: 0.5em 0.6em;
+  margin: 0.6rem;
+}
+
+small.fa {
+  color: rgb(131, 126, 126);
+}
+
+img {
+  width: 60%;
+  height: 50%;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}

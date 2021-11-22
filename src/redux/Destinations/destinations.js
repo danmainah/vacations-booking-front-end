@@ -1,19 +1,53 @@
-import { getDestinations } from '../../helpers/getDestinationData';
+import getDestinations from '../../helpers/getDestinations';
+import destroyDestination from '../../helpers/destroyDestination';
 
-const FETCH_DATA = 'FETCH_DATA';
+// Actions
+const LOAD = 'vacations-booking-front-end/destinations/LOAD';
+const DELETE = 'vacations-booking-front-end/destinations/DELETE';
 const initialState = [];
 
-export const fetchDestinations = () => async (dispatch) => {
-  const destinations = await getDestinations();
-  dispatch({ type: FETCH_DATA, payload: destinations });
+// Action creators
+const deleteDestination = (payload) => ({
+  type: DELETE,
+  payload,
+});
+
+const deleteThunkDestination = (destinationId) => async (dispatch) => {
+  const response = await destroyDestination();
+  if (response.status === 'Success!') {
+    dispatch(deleteDestination(destinationId));
+  }
 };
 
-export const destinationsReducer = (state = initialState, action) => {
+const loadDestinations = (payload) => ({
+  type: LOAD,
+  payload,
+});
+
+const loadDestinationsThunk = () => async (dispatch) => {
+  const data = await getDestinations();
+  if (data) {
+    dispatch(loadDestinations(data));
+  }
+};
+
+// reducer
+const destinationsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case FETCH_DATA:
-      return payload;
+    case LOAD:
+      return {
+        ...state,
+        destinations: payload,
+      };
+    case DELETE:
+      return {
+        ...state,
+        ...state.filter((destination) => destination.id !== action.payload),
+      };
     default:
       return state;
   }
 };
+
+export { destinationsReducer, loadDestinationsThunk, deleteThunkDestination };
