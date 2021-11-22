@@ -14,7 +14,7 @@ const Slides = (info) => {
             {name}
           </h4>
         </Card.Title>
-        <Card.Text>
+        <Card.Text className="row d-none d-lg-block">
           <small>Lorem dbkr wgbijp rg3wtwposv wrbweuhsrog sgsruehorg efskg</small>
         </Card.Text>
       </Card.Body>
