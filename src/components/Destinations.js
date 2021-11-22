@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Flickity from 'react-flickity-component';
 import { Card } from 'react-bootstrap';
 import '../styles/Flickity.css';
 import '../styles/Destinations.css';
-import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 
 const Destinations = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadDestinationsThunk());
-  }, [dispatch]);
-
   const data = useSelector((state) => state.destinations.destinations);
   const state = data.sort(() => 0.5 - Math.random());
   return (
@@ -27,7 +20,7 @@ const Destinations = () => {
         <Flickity
           className="carousel" // default ''
           elementType="div" // default 'div'
-          options="flickityOptions" // takes flickity options {}
+          // options="flickityOptions" // takes flickity options {}
           disableImagesLoaded={false} // default false
           reloadOnUpdate // default false
           static // default false
