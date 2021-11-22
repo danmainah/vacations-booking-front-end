@@ -10,14 +10,14 @@ const DeleteDestinations = () => {
     dispatch(deleteThunkDestination(destinationId));
   };
   return (
-    <div className="align-middle">
+    <div className="align-middle mx-auto">
       <style type="text/css">
         {`
-    .btn-flat {
-      background-color: #97BF11;
-      color: white;
-    }
-    `}
+         .btn-flat {
+            background-color: #97BF11;
+            color: white;
+          }
+        `}
       </style>
       <div>
         <h3 className="text-center mb-4"> My Destinations </h3>
