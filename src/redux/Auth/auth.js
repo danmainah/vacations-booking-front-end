@@ -10,7 +10,8 @@ const initialState = {
   loading: true,
   token: null,
   admin: null,
-  details: null,
+  username: null,
+  id: null,
   errors: null,
 };
 
@@ -47,8 +48,9 @@ const authReducer = (state = initialState, action) => {
         logged_in: true,
         loading: false,
         admin: payload.admin,
+        username: payload.username,
+        id: payload.id,
         token: payload.token,
-        details: payload.details,
       };
     case GET_ERRORS:
       return {
@@ -60,13 +62,20 @@ const authReducer = (state = initialState, action) => {
         logged_in: true,
         loading: false,
         admin: payload.admin,
+        username: payload.username,
+        id: payload.id,
         token: payload.token,
-        details: payload.details,
         errors: null,
       };
     case SIGN_OUT_USER:
       return {
-        ...state, logged_in: false, admin: null, token: null, details: null, errors: null,
+        ...state,
+        logged_in: false,
+        admin: null,
+        username: null,
+        id: null,
+        token: null,
+        errors: null,
       };
     default:
       return state;
