@@ -10,7 +10,7 @@ const DestForm = () => {
 
   return (
     <div className="wrapper" id="login">
-      <div className="mainForm">
+      <div className="mainForm w-50">
         <h1>Create A New Destination</h1>
         <Form onSubmit={(e) => {
           e.preventDefault();

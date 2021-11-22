@@ -46,7 +46,7 @@
 
 @media (max-width: 768px) {
   .mainForm {
-    width: 100%;
+    width: 100% !important;
   }
 
   .loginFieldGroup {
