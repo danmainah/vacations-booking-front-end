@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserveDestination } from '../../redux/reservations/reservationReducers';
+import { reserveReducer } from '../../redux/Reservations/reservation';
 
 const ReserveButton = ({ id }) => {
   const reservations = useSelector((state) => state.reservations);
