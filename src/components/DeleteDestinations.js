@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { deleteThunkDestination } from '../redux/Destinations/destinations';
+import styles from '../styles/Delete.module.css';
 
 const DeleteDestinations = () => {
   const destinations = useSelector((state) => state.destinations.destinations);
@@ -10,7 +11,7 @@ const DeleteDestinations = () => {
     dispatch(deleteThunkDestination(destinationId));
   };
   return (
-    <div className="align-middle mx-auto">
+    <div className={styles.delete}>
       <style type="text/css">
         {`
          .btn-flat {
@@ -19,7 +20,7 @@ const DeleteDestinations = () => {
           }
         `}
       </style>
-      <div>
+      <div className="listed">
         <h3 className="text-center mb-4"> My Destinations </h3>
       </div>
       <ul className="list-group">
