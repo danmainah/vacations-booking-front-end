@@ -24,6 +24,7 @@ const DestForm = () => {
               name="name"
               placeholder="Enter destination name"
               onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
+              required
             />
           </Form.Group>
 
@@ -33,6 +34,7 @@ const DestForm = () => {
               name="location"
               placeholder="Enter location"
               onChange={(e) => setInputs({ ...inputs, location: e.target.value })}
+              required
             />
           </Form.Group>
 
@@ -42,6 +44,7 @@ const DestForm = () => {
               name="image_url"
               placeholder="Enter image url"
               onChange={(e) => setInputs({ ...inputs, image_url: e.target.value })}
+              required
             />
           </Form.Group>
 
@@ -51,6 +54,7 @@ const DestForm = () => {
               name="name"
               placeholder="Price per day"
               onChange={(e) => setInputs({ ...inputs, price_per_day: e.target.value })}
+              required
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="btnForm">
