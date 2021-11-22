@@ -1,4 +1,6 @@
+import '../styles/postForm.css';
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
@@ -7,39 +9,57 @@ const DestForm = () => {
   });
 
   return (
-    <section className="post-form-section position-relative vw-100 vh-100">
-      <h1 className="text-center py-5">Add new destination</h1>
-      <form
-        className="mt-5 w-25 d-flex flex-column mx-auto"
-        onSubmit={(e) => {
+    <div className="wrapper" id="login">
+      <div className="mainForm">
+        <h1>Create A New Destination</h1>
+        <Form onSubmit={(e) => {
           e.preventDefault();
           postDestination(inputs);
           e.target.reset();
         }}
-      >
-        <label className="justify-content-between d-flex p-2" htmlFor="name">
-          Destination Name
-          <input type="text" name="name" id="name" onChange={(e) => setInputs({ ...inputs, name: e.target.value })} />
-        </label>
+        >
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Control
+              type="text"
+              name="name"
+              placeholder="Enter destination name"
+              onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
+            />
+          </Form.Group>
 
-        <label className="justify-content-between d-flex p-2" htmlFor="location">
-          Location
-          <input type="text" name="location" id="location" onChange={(e) => setInputs({ ...inputs, location: e.target.value })} />
-        </label>
+          <Form.Group className="mb-3" controlId="location">
+            <Form.Control
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              onChange={(e) => setInputs({ ...inputs, location: e.target.value })}
+            />
+          </Form.Group>
 
-        <label className="justify-content-between d-flex p-2" htmlFor="image_url">
-          Image url
-          <input type="text" name="image_url" id="image_url" onChange={(e) => setInputs({ ...inputs, image_url: e.target.value })} />
-        </label>
+          <Form.Group className="mb-3" controlId="image_url">
+            <Form.Control
+              type="text"
+              name="image_url"
+              placeholder="Enter image url"
+              onChange={(e) => setInputs({ ...inputs, image_url: e.target.value })}
+            />
+          </Form.Group>
 
-        <label className="justify-content-between d-flex p-2" htmlFor="price_per_day">
-          Price per day
-          <input type="number" name="price_per_day" id="price_per_day" min="0" defaultValue="0" onChange={(e) => setInputs({ ...inputs, price_per_day: e.target.value })} />
-        </label>
+          <Form.Group className="mb-3" controlId="price_per_day">
+            <Form.Control
+              type="number"
+              name="name"
+              placeholder="Price per day"
+              onChange={(e) => setInputs({ ...inputs, price_per_day: e.target.value })}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" className="btnForm">
+            Submit
+          </Button>
+        </Form>
+      </div>
 
-        <button className="btn btn-success mt-5" type="submit">Submit</button>
-      </form>
-    </section>
+    </div>
   );
 };
 
