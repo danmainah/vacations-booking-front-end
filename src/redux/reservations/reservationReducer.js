@@ -10,30 +10,31 @@ const CANCEL_RESERVATION = 'vacation-booking-back-end/reservations/CANCEL_RESERV
 
 const initialState = [];
 
-const reservationReducer = (state = initialState, action) => {
-  switch (action.type) {
+const reservationReducer = (state=initialState, action={}) => {
+  switch(action.type) {
     case LOAD_RESERVATIONS:
       return action.payload;
     case ADD_RESERVATION:
+      console.log([...state, action.payload]);
       return [...state, action.payload];
     case CANCEL_RESERVATION:
-      return state.filter((reservation) => reservation.destination_id === action.payload);
+      return state.filter((reservation) => reservation.destination_id != action.payload);
     default:
       return state;
   }
 };
 
-const reservationsLoadAction = (payload) => ({
+export const reservationsLoadAction = (payload) => ({
   type: LOAD_RESERVATIONS,
   payload,
 });
 
-const reservationAddAction = (payload) => ({
+export const reservationAddAction = (payload) => ({
   type: ADD_RESERVATION,
   payload,
 });
 
-const reservationCancelAction = (payload) => ({
+export const reservationCancelAction = (payload) => ({
   type: CANCEL_RESERVATION,
   payload,
 });
