@@ -15,19 +15,20 @@ import { logOutUser } from '../redux/Auth/auth';
 import { clearStatus } from '../redux/Reservations/reservation';
 
 export default function Reservation(props) {
+  const username = useSelector((state) => state.user.username);
+  const token = useSelector((state) => state.user.token);
+  const regStatus = useSelector((state) => state.reservations);
+  const destinations = useSelector((state) => state.destinations.destinations);
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   let { destination } = props;
   const destinationPassed = destination !== 'default';
-  destination = destination === 'default' ? 'Bora Bora' : destination;
+  destination = destination === 'default' ? destinations[0].name : destination;
   const [chosenDestination, setChosenDestination] = useState(destination);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const username = useSelector((state) => state.user.username);
-  const token = useSelector((state) => state.user.token);
-  const regStatus = useSelector((state) => state.reservations);
 
   useEffect(() => {
     const res = isTokenExpired();
@@ -38,8 +39,6 @@ export default function Reservation(props) {
     }
     dispatch(clearStatus());
   }, []);
-
-  const destinations = useSelector((state) => state.destinations.destinations);
 
   // const setBackgroundImg = () => {
   //   const url = destinations.filter((place) => place.name === chosenDestination);
@@ -61,13 +60,26 @@ export default function Reservation(props) {
     setEndDate(date);
   };
 
+  const findDestID = (name) => {
+    const dest = destinations.filter((dest) => dest.name === name);
+    return dest[0].id;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    let id;
+    if (destinationPassed) {
+      id = chosenDestination;
+    } else {
+      id = findDestID(chosenDestination);
+    }
+
     const data = {
-      destination_id: 1,
+      destination_id: id,
       startingDay: moment(startDate).format('YYYY-MM-DD'),
       endingDay: moment(endDate).format('YYYY-MM-DD'),
     };
+    console.log(data);
     dispatch(postReservationThunk(token, data));
     setStartDate(null);
     setEndDate(null);
@@ -137,7 +149,7 @@ export default function Reservation(props) {
                   {destinationPassed
                     ? (
                       <Form.Group className="" controlId="destination">
-                        <Form.Control type="text" value={destination} disabled />
+                        <Form.Control type="text" value={chosenDestination} disabled />
                       </Form.Group>
                     ) : (
                       <Form.Group className="" controlId="destination">
