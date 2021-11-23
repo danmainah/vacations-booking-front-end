@@ -6,10 +6,10 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Destinations from './Destinations';
-import DestForm from './AddDestinationForm';
 import Reservation from './Reservation';
+import DestForm from './AddDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
-import DeleteDestinations from './DeleteDestinations';
+import Test1 from './Test1';
 import Navbar from './Navbar';
 
 const App = () => {
@@ -22,15 +22,17 @@ const App = () => {
     <div className="App">
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/dest" element={<DestForm />} />
-          <Route exact path="/" element={<Destinations />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/reserve" element={<Reservation />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/destinations/delete" element={<DeleteDestinations />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route path="/dest" element={<DestForm />} />
+            <Route exact path="/" element={<Destinations />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/reserve" element={<Reservation />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/test" element={<Test1 />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

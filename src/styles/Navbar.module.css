@@ -1,8 +1,4 @@
 .wrapper {
-  /* position: absolute;
-  float: left;
-  top: 0;
-  left: 0; */
   border-right: 3px solid lightgray;
   display: flex;
   flex-direction: column;
@@ -23,8 +19,7 @@
 .logo {
   width: 80%;
   height: 200px;
-  background:
-    url("https://cdn.iconscout.com/icon/premium/png-256-thumb/international-tour-4151104-3439382.png")
+  background: url("https://cdn.iconscout.com/icon/premium/png-256-thumb/international-tour-4151104-3439382.png")
     center center;
 }
 
@@ -74,5 +69,6 @@
 @media (max-width: 991px) {
   .buttonStyle {
     font-size: small !important;
+    background-color: transparent;
   }
 }
