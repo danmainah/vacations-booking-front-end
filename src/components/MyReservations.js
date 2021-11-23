@@ -20,13 +20,22 @@ const MyReservations = () => {
     dispatch(cancelReservation(id));
   };
 
+  if (reservations.length === 0) {
+    return (
+      <>
+        <h2>My Reservations</h2>
+        <h3>You don`&#39;`t have upcoming reservations</h3>
+      </>
+    );
+  }
   return (
     <>
       <h2>My Reservations</h2>
       <ul>
         {' '}
         {
-        reservations.map((reservation) => (
+        reservations
+        && reservations.map((reservation) => (
           <li key={reservation.id}>
             <span>
               {' '}
