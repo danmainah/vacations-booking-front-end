@@ -27,7 +27,7 @@ const DestinationDetails = ({ id }) => {
           location={destination.location}
           pricePerDay={destination.price_per_day}
         />
-        <Link to="/destinations" className="justify-content-end d-flex align-items-center details-link-to-home">
+        <Link to="/" className="justify-content-end d-flex align-items-center details-link-to-home">
           DISCOVER MORE
           <FontAwesomeIcon icon={faAngleRight} />
         </Link>
