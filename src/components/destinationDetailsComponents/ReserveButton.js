@@ -9,7 +9,7 @@ const ReserveButton = ({ id }) => {
     navigate('/reserve', { id });
   };
   return (
-    <button type="button" onClick={() => handleClick(id)}>
+    <button className="w-75 dest-detail-btn" type="button" onClick={() => handleClick(id)}>
       Reserve
     </button>
   );
