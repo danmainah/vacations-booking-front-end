@@ -11,7 +11,7 @@ const Navbar = () => (
   <header>
     <nav className={styles.wrapper} id="desktop">
       <div className={styles.logoWrapper}>
-        <div className={styles.logo} />
+        <img className={styles.logo} src="logo-m-trans.png" alt="logo" />
       </div>
       <div className={styles.menu}>
         <MenuItems />

@@ -53,6 +53,11 @@ button {
   align-items: center;
 }
 
+input::placeholder {
+  color: rgb(13, 88, 6);
+  font-size: 1.5rem;
+}
+
 button {
   height: 3rem;
 }
