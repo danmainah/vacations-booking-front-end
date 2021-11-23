@@ -6,7 +6,7 @@ import { logOutUser } from '../redux/Auth/auth';
 
 export default function Home() {
   const loggedIn = useSelector((state) => state.user.logged_in);
-  const username = useSelector((state) => state.user.details);
+  const username = useSelector((state) => state.user.username);
 
   const dispatch = useDispatch();
 
