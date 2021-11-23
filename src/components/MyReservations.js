@@ -24,7 +24,7 @@ const MyReservations = () => {
       <ul>
         {' '}
         {
-        reservations.map((reservation) => (
+        reservations && reservations.map((reservation) => (
           <li key={reservation.id}>
             <span>
               {' '}
