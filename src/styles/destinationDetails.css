@@ -7,3 +7,8 @@
   color: black;
   font-style: italic;
 }
+
+.destCoverImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+}

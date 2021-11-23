@@ -19,7 +19,7 @@ const DestinationDetails = ({ id }) => {
 
   return (
     <div className="row container-fluid vh-100 mt-5">
-      <div className="col-lg-8 d-none d-lg-block mt-5" style={{ backgroundImage: `url('${destination.image_url}')` }} />
+      <div className="col-lg-8 d-none d-lg-block mt-5 destCoverImage" style={{ backgroundImage: `url('${destination.image_url}')` }} />
       <aside className="col-lg-4 col-md-12 mt-5 d-flex flex-column">
         <h1 className="text-end details-header">{destination.name}</h1>
         <DetailList
