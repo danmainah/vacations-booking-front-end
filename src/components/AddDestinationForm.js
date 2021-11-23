@@ -1,28 +1,23 @@
 import '../styles/postForm.css';
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
-  const message = useSelector((state) => state);
   const dispatch = useDispatch();
-  const handlePost = (destinationId) => {
-    dispatch(postDestination(destinationId));
-  };
 
   const [inputs, setInputs] = useState({
     name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
 
-  useEffect(() => {
-    if (message.destinations.action.payload.message !== undefined) {
-      setInputs({ displayMessage: message.destinations.action.payload.message });
-    }
+  const handlePost = (destinationId) => {
+    dispatch(postDestination(destinationId));
+    setInputs({ displayMessage: 'Destination succesfully created!!!' });
     setTimeout(() => {
       setInputs({ ...inputs, displayMessage: '' });
-    }, 2000);
-  }, []);
+    }, 4000);
+  };
 
   return (
     <div className="wrapper" id="login">
