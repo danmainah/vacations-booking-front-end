@@ -30,7 +30,7 @@ export default function Reservation() {
     return dest[0].name;
   };
 
-  let destination = location.state.id;
+  let destination = location.id ? location.id : null;
   const destinationPassed = destination !== null;
   destination = destination === null ? destinations[0].name : findDestName(destination);
   const [chosenDestination, setChosenDestination] = useState(destination);
