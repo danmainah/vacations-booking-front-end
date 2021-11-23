@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/Auth/auth';
+import { reservationIsLoading, getReservationThunk } from '../redux/Reservations/reservation';
 import styles from '../styles/Navbar.module.css';
 
 export default function MenuItems() {
   const loggedIn = useSelector((state) => state.user.logged_in);
   const admin = useSelector((state) => state.user.admin);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(reservationIsLoading());
+    dispatch(getReservationThunk());
+  }, [dispatch]);
 
   const handleLogOut = (e) => {
     e.preventDefault();
