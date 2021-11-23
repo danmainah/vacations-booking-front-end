@@ -70,25 +70,16 @@ export default function MenuItems() {
 
       </NavLink>
       )}
-      {/* {!loggedIn && (
-      <NavLink
-        to="/login"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        LOG IN
-
-      </NavLink>
-      )} */}
       {loggedIn ? (
 
-        <Navlink
+        <NavLink
           to="/"
           className={styles.buttonStyle}
           onClick={handleLogOut}
         >
           LOG OUT
 
-        </Navlink>
+        </NavLink>
 
       )
         : (
@@ -103,14 +94,3 @@ export default function MenuItems() {
     </>
   );
 }
-
-// {loggedIn && (
-//   <button
-//     type="button"
-//     style={({ isActive }) => (isActive ? activeStyle : undefined)}
-//     onClick={handleLogOut}
-//   >
-//     LOG OUT
-
-//   </button>
-//   )}
