@@ -1,11 +1,10 @@
 import '../styles/postForm.css';
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
-  const message = useSelector((state) => state);
   const dispatch = useDispatch();
   const handlePost = (destinationId) => {
     dispatch(postDestination(destinationId));
@@ -14,8 +13,6 @@ const DestForm = () => {
   const [inputs, setInputs] = useState({
     name: '', location: '', image_url: '', price_per_day: '',
   });
-
-  console.log(message.destinations.payload.message);
 
   return (
     <div className="wrapper" id="login">
