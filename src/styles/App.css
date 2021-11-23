@@ -59,7 +59,7 @@ button {
 
   #mobile {
     z-index: 1000;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   .main {
@@ -121,4 +121,8 @@ button {
 :-moz-placeholder {
   /* Firefox 18- */
   color: white;
+}
+
+#basic-navbar-nav {
+  background-color: rgb(84, 126, 22);
 }

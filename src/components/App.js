@@ -9,7 +9,7 @@ import Destinations from './Destinations';
 import Reservation from './Reservation';
 import DestForm from './AddDestinationForm';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
-import Test1 from './Test1';
+import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/reserve" element={<Reservation />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/test" element={<Test1 />} />
+            <Route path="/destinations/delete" element={<DeleteDestinations />} />
           </Routes>
         </div>
       </Router>
