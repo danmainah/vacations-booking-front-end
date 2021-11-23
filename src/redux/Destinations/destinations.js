@@ -55,7 +55,7 @@ const destinationsReducer = (state = initialState, action) => {
     case ADD:
       return {
         ...state,
-        ...state.destinations.push(payload),
+        ...state.destinations.concat(payload),
       };
     case LOAD:
       return {
