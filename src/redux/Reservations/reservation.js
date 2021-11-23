@@ -55,8 +55,9 @@ export const cancelReservation = (id) => async (dispatch, getState) => {
       'Content-Type': 'application/json',
     }),
   });
-  const data = response.json();
-  if (data && data === 'Reservation succesfully removed') {
+  const data = await response.json();
+  console.log(data);
+  if (data && data.status === 'Success!') {
     dispatch(cancelReservationAction(id));
   } else {
     console.log('No action taken');

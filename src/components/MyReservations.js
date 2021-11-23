@@ -4,7 +4,7 @@ import {
   useDispatch,
 } from 'react-redux';
 // eslint-disable-next-line import/extensions
-import { getReservationThunk } from '../redux/Reservations/reservation';
+import { getReservationThunk, cancelReservation } from '../redux/Reservations/reservation';
 
 const MyReservations = () => {
   const reservations = useSelector((state) => state.reservations.reservations);
@@ -16,8 +16,8 @@ const MyReservations = () => {
     dispatch(getReservationThunk());
   }, []);
 
-  const handleCancelClick = () => {
-    // dispatch(cancelReservation(id));
+  const handleCancelClick = (id) => {
+    dispatch(cancelReservation(id));
   };
 
   return (
