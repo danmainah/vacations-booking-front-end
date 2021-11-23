@@ -6,31 +6,28 @@ import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
   const message = useSelector((state) => state);
-  let displayMessage = '';
   const dispatch = useDispatch();
   const handlePost = (destinationId) => {
     dispatch(postDestination(destinationId));
   };
 
   const [inputs, setInputs] = useState({
-    name: '', location: '', image_url: '', price_per_day: '',
+    name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
 
-  if (message.destinations.action.payload.message !== undefined) {
-    console.log(message.destinations.action.payload.message);
-    displayMessage = message.destinations.action.payload.message;
-  }
   useEffect(() => {
-  }, [setTimeout(() => {
-    displayMessage = '';
-    console.log(displayMessage);
-  }, 2000)]);
+    if (message.destinations.action.payload.message !== undefined) {
+      setInputs({ displayMessage: message.destinations.action.payload.message });
+    }
+    setTimeout(() => {
+      setInputs({ ...inputs, displayMessage: '' });
+    }, 2000);
+  }, []);
 
   return (
     <div className="wrapper" id="login">
-      <h1>{displayMessage}</h1>
       <div className="mainForm w-50">
-        <h1>Create A New Destination</h1>
+        <h1>{inputs.displayMessage}</h1>
         <Form onSubmit={(e) => {
           e.preventDefault();
           handlePost(inputs);
