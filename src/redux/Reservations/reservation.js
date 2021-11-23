@@ -2,7 +2,7 @@ const GET_RESERVATIONS = 'GET_RESERVATIONS';
 const POST_RESERVATIONS = 'vacations-booking-front-end/Reservations/POST_RESERVATIONS';
 const GET_ERRORS = 'vacations-booking-front-end/Reservations/GET_ERRORS';
 const CLEAR_ERRORS = 'vacations-booking-front-end/Reservations/CLEAR_ERRORS';
-
+const IS_LOADING = 'vacations-booking-front-end/Reservations/IS_LOADING';
 const initialValue = {};
 
 const getReservation = (payload) => ({
@@ -32,29 +32,45 @@ const getReservationThunk = () => async (dispatch) => {
   }
 };
 
+const reservationIsLoading = () => ({
+  type: IS_LOADING,
+});
+
 const reservationReducer = (state = initialValue, action) => {
   switch (action.type) {
     case GET_RESERVATIONS:
       return {
         ...state,
         reservations: action.payload,
+        loading: false,
       };
     case POST_RESERVATIONS:
-      return { ...state, success: action.payload };
+      return {
+        ...state,
+        success: action.payload,
+        loading: false,
+      };
     case GET_ERRORS:
       return {
         ...state,
         errors: action.payload,
+        loading: false,
       };
     case CLEAR_ERRORS:
       return {
         ...state,
         errors: null,
         success: null,
+        loading: false,
+      };
+    case IS_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;
   }
 };
 
-export { reservationReducer, getReservationThunk };
+export { reservationReducer, getReservationThunk, reservationIsLoading };
