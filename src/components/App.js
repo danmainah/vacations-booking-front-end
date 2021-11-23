@@ -11,6 +11,7 @@ import Reservation from './Reservation';
 import { loadDestinationsThunk } from '../redux/Destinations/destinations';
 import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
+import MyReservations from './MyReservations';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/reserve" element={<Reservation />} />
           <Route path="/home" element={<Home />} />
           <Route path="/destinations/delete" element={<DeleteDestinations />} />
+          <Route path="/reservations" element={<MyReservations />} />
         </Routes>
       </Router>
     </div>

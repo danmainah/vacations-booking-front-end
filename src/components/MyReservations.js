@@ -1,25 +1,23 @@
-import React, {
-  useEffect,
-} from 'react';
+import React, { useEffect } from 'react';
 import {
   useSelector,
   useDispatch,
 } from 'react-redux';
 // eslint-disable-next-line import/extensions
-import { loadReservations, cancelReservation } from '../redux/reservations/reservationReducer';
+import { getReservationThunk } from '../redux/Reservations/reservation';
 
 const MyReservations = () => {
-  const reservations = useSelector((state) => state.reservations);
+  const reservations = useSelector((state) => state.reservations.reservations);
   const dispatch = useDispatch();
 
+  console.log(reservations);
+
   useEffect(() => {
-    if (reservations === []) {
-      dispatch(loadReservations());
-    }
+    dispatch(getReservationThunk());
   }, []);
 
-  const handleCancelClick = (id) => {
-    dispatch(cancelReservation(id));
+  const handleCancelClick = () => {
+    // dispatch(cancelReservation(id));
   };
 
   return (
@@ -38,16 +36,16 @@ const MyReservations = () => {
             <span>
               {' '}
               from:
-              {reservation.startDate}
+              {reservation.startingDay}
             </span>
             <span>
               {' '}
               to:
-              {reservation.endDate}
+              {reservation.endingDay}
             </span>
             <span>
               {' '}
-              to:
+              cost:
               {reservation.cost}
             </span>
             <button
