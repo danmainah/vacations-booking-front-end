@@ -25,7 +25,7 @@ const loadDestinations = (payload) => ({
   payload,
 });
 
-export const postDestinations = (payload) => ({
+export const postDestinations = (payload = '') => ({
   type: POST,
   payload,
 });
@@ -52,7 +52,11 @@ const destinationsReducer = (state = initialState, action) => {
         ...state.destinations.filter((destination) => destination.id !== action.payload),
       };
     case POST:
-      return action;
+      return {
+        ...state,
+        action,
+      };
+
     default:
       return state;
   }
