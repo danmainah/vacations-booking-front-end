@@ -46,7 +46,7 @@ export default function MenuItems() {
       )}
       {admin && (
       <NavLink
-        to="/login"
+        to="/dest"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         ADD DESTINATION
