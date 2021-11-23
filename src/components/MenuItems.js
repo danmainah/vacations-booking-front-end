@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/Auth/auth';
 import { reservationIsLoading, getReservationThunk } from '../redux/Reservations/reservation';
@@ -19,6 +19,14 @@ export default function MenuItems() {
     e.preventDefault();
     dispatch(logOutUser());
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate('/');
+    }
+  }, [loggedIn]);
 
   const activeStyle = {
     color: 'white',
@@ -52,7 +60,7 @@ export default function MenuItems() {
       )}
       {admin && (
       <NavLink
-        to="/login"
+        to="/dest"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         ADD DESTINATION
@@ -68,25 +76,16 @@ export default function MenuItems() {
 
       </NavLink>
       )}
-      {/* {!loggedIn && (
-      <NavLink
-        to="/login"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        LOG IN
-
-      </NavLink>
-      )} */}
       {loggedIn ? (
 
-        <button
+        <NavLink
+          to="/"
           className={styles.buttonStyle}
-          type="submit"
           onClick={handleLogOut}
         >
           LOG OUT
 
-        </button>
+        </NavLink>
 
       )
         : (
