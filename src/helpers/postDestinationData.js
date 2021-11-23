@@ -1,9 +1,11 @@
+import { postDestinations } from '../redux/Destinations/destinations';
+
 const destinationUrl = 'http://localhost:3000/api/v1/destinations';
 const token = localStorage.getItem('token');
 // eslint-disable-next-line
 export let serverResponse = '';
 
-const postDestination = async (body) => {
+const postDestination = (body) => async (dispatch) => {
   const request = await fetch(destinationUrl, {
     method: 'POST',
     body: JSON.stringify(body),
@@ -13,6 +15,7 @@ const postDestination = async (body) => {
     }),
   });
   const response = await request.json();
+  dispatch(postDestinations(response));
   return response.message;
 };
 
