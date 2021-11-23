@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   useSelector,
   useDispatch,
@@ -12,9 +12,7 @@ const MyReservations = () => {
 
   console.log(reservations);
 
-  useEffect(() => {
-    dispatch(getReservationThunk());
-  }, []);
+  dispatch(getReservationThunk());
 
   const handleCancelClick = (id) => {
     dispatch(cancelReservation(id));
