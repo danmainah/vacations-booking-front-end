@@ -80,7 +80,6 @@ export default function Reservation() {
       startingDay: moment(startDate).format('YYYY-MM-DD'),
       endingDay: moment(endDate).format('YYYY-MM-DD'),
     };
-    console.log(data);
     dispatch(postReservationThunk(token, data));
     setStartDate(null);
     setEndDate(null);

@@ -1,22 +1,22 @@
-import React, {
-  useEffect,
-} from 'react';
+import React from 'react';
 import {
   useSelector,
   useDispatch,
 } from 'react-redux';
 // eslint-disable-next-line import/extensions
-import { loadReservations, cancelReservation } from '../redux/reservations/reservationReducer';
+import { cancelReservation } from '../redux/reservations/reservationReducer';
+// import { getReservationThunk, reservationIsLoading } from '../redux/Reservations/reservation';
 
 const MyReservations = () => {
   const reservations = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.reservations.loading);
 
-  useEffect(() => {
-    if (reservations === []) {
-      dispatch(loadReservations());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (reservations === []) {
+  //     dispatch(loadReservations());
+  //   }
+  // }, []);
 
   const handleCancelClick = (id) => {
     dispatch(cancelReservation(id));
@@ -24,10 +24,14 @@ const MyReservations = () => {
 
   return (
     <>
-      <h2>My Reservations</h2>
-      <ul>
-        {' '}
-        {
+      { isLoading ? (
+        <img className="w-100" src="rotate-pulsating-loading-animation.webp" alt="spinner" />
+      ) : (
+        <>
+          <h2>My Reservations</h2>
+          <ul>
+            {' '}
+            {
         reservations.map((reservation) => (
           <li key={reservation.id}>
             <span>
@@ -59,7 +63,9 @@ const MyReservations = () => {
           </li>
         ))
       }
-      </ul>
+          </ul>
+        </>
+      )}
     </>
   );
 };

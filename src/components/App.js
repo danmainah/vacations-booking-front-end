@@ -8,14 +8,16 @@ import Login from './Login';
 import Destinations from './Destinations';
 import DestForm from './AddDestinationForm';
 import Reservation from './Reservation';
-import { loadDestinationsThunk } from '../redux/Destinations/destinations';
+import { destIsLoading, loadDestinationsThunk } from '../redux/Destinations/destinations';
 import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
+import DestinationDetails from './DestinationDetails';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(destIsLoading());
     dispatch(loadDestinationsThunk());
   }, [dispatch]);
   return (
@@ -28,8 +30,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/reserve" element={<Reservation />} />
+          <Route path="/reserve/:destination_id" element={<Reservation />} />
           <Route path="/home" element={<Home />} />
           <Route path="/destinations/delete" element={<DeleteDestinations />} />
+          <Route path="/destination_details" element={<DestinationDetails id={1} />} />
         </Routes>
       </Router>
     </div>

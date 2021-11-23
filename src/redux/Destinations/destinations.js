@@ -4,6 +4,7 @@ import destroyDestination from '../../helpers/destroyDestination';
 // Actions
 const LOAD = 'vacations-booking-front-end/destinations/LOAD';
 const DELETE = 'vacations-booking-front-end/destinations/DELETE';
+const IS_LOADING = 'vacations-booking-front-end/destinations/IS_LOADING';
 const initialState = [];
 
 // Action creators
@@ -31,6 +32,10 @@ const loadDestinationsThunk = () => async (dispatch) => {
   }
 };
 
+const destIsLoading = () => ({
+  type: IS_LOADING,
+});
+
 // reducer
 const destinationsReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -39,15 +44,24 @@ const destinationsReducer = (state = initialState, action) => {
       return {
         ...state,
         destinations: payload,
+        loading: false,
       };
     case DELETE:
       return {
         ...state,
         ...state.destinations.filter((destination) => destination.id !== action.payload),
+        loading: false,
+      };
+    case IS_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;
   }
 };
 
-export { destinationsReducer, loadDestinationsThunk, deleteThunkDestination };
+export {
+  destinationsReducer, loadDestinationsThunk, deleteThunkDestination, destIsLoading,
+};
