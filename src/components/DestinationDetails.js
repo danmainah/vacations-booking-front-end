@@ -3,28 +3,28 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DetailList from './destinationDetailsComponents/DetailList';
 import ReserveButton from './destinationDetailsComponents/ReserveButton';
 
 const DestinationDetails = ({ id }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const handleClick = () => history.goback();
+  const handleClick = () => navigate('/');
 
-  const destinations = useSelector((state) => state.destinations);
+  const destinations = useSelector((state) => state.destinations.destinations);
 
   const destination = destinations.find((dest) => dest.id === id);
 
   return (
-    <div style={{ backgroundImage: `url(${destination.imageUrl})` }}>
+    <div style={{ backgroundImage: `url('${destination.image_url}')` }}>
       <button type="button" onClick={handleClick} className="back-button">Back</button>
       <aside>
         <h2>{destination.name}</h2>
         <DetailList
           name={destination.name}
           location={destination.location}
-          pricePerDay={destination.pricePerDay}
+          pricePerDay={destination.price_per_day}
         />
         <Link to="/destinations">
           DISCOVER MORE

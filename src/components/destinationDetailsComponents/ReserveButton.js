@@ -1,21 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { reserveReducer } from '../../redux/Reservations/reservation';
+import { useNavigate } from 'react-router-dom';
 
 const ReserveButton = ({ id }) => {
-  const reservations = useSelector((state) => state.reservations);
+  const navigate = useNavigate();
 
-  const buttonStatus = (id) => reservations.some((item) => item.destination_id === id);
-
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    dispatch(reserveDestination(id));
+  const handleClick = (id) => {
+    navigate('/reserve', { id });
   };
   return (
-    <button type="button" onClick={handleClick}>
-      {buttonStatus ? 'Reserve' : 'Reserved'}
+    <button type="button" onClick={() => handleClick(id)}>
+      Reserve
     </button>
   );
 };

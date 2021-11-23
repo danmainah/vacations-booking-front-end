@@ -29,7 +29,7 @@ export default function MenuItems() {
 
       </NavLink>
       <NavLink
-        to="/home"
+        to="/reserve"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         MAKE RESERVATIONS
@@ -95,14 +95,3 @@ export default function MenuItems() {
     </>
   );
 }
-
-// {loggedIn && (
-//   <button
-//     type="button"
-//     style={({ isActive }) => (isActive ? activeStyle : undefined)}
-//     onClick={handleLogOut}
-//   >
-//     LOG OUT
-
-//   </button>
-//   )}

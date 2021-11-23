@@ -43,7 +43,7 @@ const destinationsReducer = (state = initialState, action) => {
     case DELETE:
       return {
         ...state,
-        ...state.filter((destination) => destination.id !== action.payload),
+        ...state.destinations.filter((destination) => destination.id !== action.payload),
       };
     default:
       return state;

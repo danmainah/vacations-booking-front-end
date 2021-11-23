@@ -3,11 +3,17 @@ import jwt from 'jwt-decode';
 const URL = 'http://localhost:3000/api/v1/';
 
 const handleError = (err) => {
-  // eslint-disable-next-line
   console.warn(err);
   return new Response(JSON.stringify(
     { errors: ['Connection failed!', 'Server is down!'] },
   ));
+};
+
+export const isTokenExpired = () => {
+  const token = localStorage.getItem('token');
+  if (!token) return true;
+  const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+  return (Math.floor((new Date()).getTime() / 1000)) >= expiry;
 };
 
 export const authUser = async (data) => {
@@ -28,7 +34,6 @@ export const authUser = async (data) => {
 
     }), // body data type must match "Content-Type" header
   })).catch((e) => {
-    // eslint-disable-next-line
     console.log(e);
   });
 
@@ -37,6 +42,7 @@ export const authUser = async (data) => {
   if (res.token) {
     localStorage.setItem('token', res.token);
     const user = jwt(res.token);
+    console.log(user);
     res.details = user.sub;
     return res;
   }
@@ -72,7 +78,6 @@ export const regUser = async (data) => {
       res.details = user.sub;
       return res;
     }
-    // eslint-disable-next-line
     console.log(res);
     return res;
   }
