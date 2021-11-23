@@ -8,7 +8,7 @@ import Login from './Login';
 import Destinations from './Destinations';
 import DestForm from './AddDestinationForm';
 import Reservation from './Reservation';
-import { loadDestinationsThunk } from '../redux/Destinations/destinations';
+import { destIsLoading, loadDestinationsThunk } from '../redux/Destinations/destinations';
 import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
 import DestinationDetails from './DestinationDetails';
@@ -17,6 +17,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(destIsLoading());
     dispatch(loadDestinationsThunk());
   }, [dispatch]);
   return (
