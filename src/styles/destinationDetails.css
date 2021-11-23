@@ -1,0 +1,14 @@
+.details-header {
+  font-weight: bold;
+}
+
+.details-link-to-home {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+}
+
+.destCoverImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+}

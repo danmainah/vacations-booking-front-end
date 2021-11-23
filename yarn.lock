@@ -5574,7 +5574,7 @@
   "resolved" "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz"
   "version" "1.0.3"
 
-"flickity@^2.2.1":
+"flickity@^2.2.1", "flickity@^2.2.2":
   "integrity" "sha512-yiPMuP8tw/zN7ARgeSLZNvzK11GkzI2mp/zlYBsyttguSCROAqxj6wiN2sSfPfW3xMG3hcUHxWUXNQMlk/wYcg=="
   "resolved" "https://registry.npmjs.org/flickity/-/flickity-2.2.2.tgz"
   "version" "2.2.2"

@@ -24,6 +24,7 @@ https://flickity.metafizzy.co
 
 /* draggable */
 
+/* stylelint-disable */ 
 .flickity-enabled.is-draggable {
   -webkit-tap-highlight-color: transparent;
 
@@ -33,6 +34,7 @@ https://flickity.metafizzy.co
   -ms-user-select: none;
   user-select: none;
 }
+/* stylelint-enable */ 
 
 .flickity-enabled.is-draggable .flickity-viewport {
   cursor: move;
