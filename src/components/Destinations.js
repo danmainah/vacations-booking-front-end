@@ -17,10 +17,10 @@ const Destinations = () => {
       { isLoading ? (
         <img className="w-100" src="rotate-pulsating-loading-animation.webp" alt="spinner" />
       ) : (
-        <div className="container-fluid">
-          <div className="align-middle">
-            <h4 className="d-flex justify-content-center">Latest Destinations</h4>
-            <h5 className="d-flex justify-content-center">
+        <div className="container-fluid align-items-center d-flex">
+          <div className="align-middle w-100">
+            <h4 className="d-flex justify-content-center mb-5 text-info fw-bold">Latest Destinations</h4>
+            <h5 className="d-flex justify-content-center mb-5 text-info fw-bold">
               {' '}
               Please select Favourite Destination
               {' '}
