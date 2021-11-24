@@ -3,7 +3,7 @@ const token = localStorage.getItem('token');
 // eslint-disable-next-line
 export let serverResponse = '';
 
-const postDestination = async (body) => {
+const postDestination = (body) => async () => {
   const request = await fetch(destinationUrl, {
     method: 'POST',
     body: JSON.stringify(body),

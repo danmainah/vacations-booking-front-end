@@ -1,20 +1,31 @@
 import '../styles/postForm.css';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
+  const dispatch = useDispatch();
+
   const [inputs, setInputs] = useState({
-    name: '', location: '', image_url: '', price_per_day: '',
+    name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
+
+  const handlePost = (destinationId) => {
+    dispatch(postDestination(destinationId));
+    setInputs({ displayMessage: 'Destination succesfully created!!!' });
+    setTimeout(() => {
+      setInputs({ ...inputs, displayMessage: '' });
+    }, 4000);
+  };
 
   return (
     <div className="wrapper" id="login">
       <div className="mainForm w-50">
-        <h1>Create A New Destination</h1>
+        <h1>{inputs.displayMessage}</h1>
         <Form onSubmit={(e) => {
           e.preventDefault();
-          postDestination(inputs);
+          handlePost(inputs);
           e.target.reset();
         }}
         >

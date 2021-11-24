@@ -57,6 +57,7 @@ const destinationsReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
+
     default:
       return state;
   }
