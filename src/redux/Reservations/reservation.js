@@ -1,14 +1,19 @@
-const GET_RESERVATIONS = 'GET_RESERVATIONS';
+import destroyReservation from '../../helpers/destroyReservation';
+import getReservations from '../../helpers/getReservations';
+
+const GET_RESERVATIONS = 'vacations-booking-front-end/Reservations/GET_RESERVATIONS';
 const POST_RESERVATIONS = 'vacations-booking-front-end/Reservations/POST_RESERVATIONS';
 const GET_ERRORS = 'vacations-booking-front-end/Reservations/GET_ERRORS';
 const CLEAR_ERRORS = 'vacations-booking-front-end/Reservations/CLEAR_ERRORS';
 const IS_LOADING = 'vacations-booking-front-end/Reservations/IS_LOADING';
+const DELETE = 'vacations-booking-front-end/Reservations/DELETE';
 const initialValue = {};
 
-const getReservation = (payload) => ({
+const loadReservations = (payload) => ({
   type: GET_RESERVATIONS,
   payload,
 });
+
 export const postReservation = (payload) => ({
   type: POST_RESERVATIONS,
   payload,
@@ -23,12 +28,10 @@ export const clearStatus = () => ({
   type: CLEAR_ERRORS,
 });
 
-const getReservationThunk = () => async (dispatch) => {
-  const request = await fetch('http://localhost:3000/api/v1/reservations');
-  const response = await request.json();
-  const data = await response.reservation;
+const loadReservationsThunk = (token) => async (dispatch) => {
+  const data = await getReservations(token);
   if (data) {
-    dispatch(getReservation(data));
+    dispatch(loadReservations(data));
   }
 };
 
@@ -36,12 +39,25 @@ const reservationIsLoading = () => ({
   type: IS_LOADING,
 });
 
+const deleteReservation = (payload) => ({
+  type: DELETE,
+  payload,
+});
+
+const deleteReservationThunk = (reservationId, token) => async (dispatch) => {
+  const response = await destroyReservation(reservationId, token);
+  if (response.status === 'Success!') {
+    dispatch(reservationIsLoading());
+    dispatch(deleteReservation(reservationId));
+  }
+};
+
 const reservationReducer = (state = initialValue, action) => {
   switch (action.type) {
     case GET_RESERVATIONS:
       return {
         ...state,
-        reservations: action.payload,
+        reservations: action.payload.reservations,
         loading: false,
       };
     case POST_RESERVATIONS:
@@ -68,9 +84,17 @@ const reservationReducer = (state = initialValue, action) => {
         ...state,
         loading: true,
       };
+    case DELETE:
+      return {
+        ...state,
+        reservations: state.reservations.filter((reservation) => reservation.id !== action.payload),
+        loading: false,
+      };
     default:
       return state;
   }
 };
 
-export { reservationReducer, getReservationThunk, reservationIsLoading };
+export {
+  reservationReducer, loadReservationsThunk, reservationIsLoading, deleteReservationThunk,
+};

@@ -156,6 +156,11 @@ https://flickity.metafizzy.co
   opacity: 1;
 } */
 
+hr {
+  border-top: 2px solid #97bf11;
+  margin-bottom: 15px;
+}
+
 @media (min-width: 500px) {
   .flickity-slider {
     left: -20% !important;
