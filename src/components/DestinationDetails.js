@@ -33,7 +33,7 @@ const DestinationDetails = () => {
           <FontAwesomeIcon icon={faAngleRight} />
         </Link>
         <div className="justify-self-end h-100 d-flex align-items-end justify-content-center">
-          <ReserveButton id={destinationId} />
+          <ReserveButton id={Number(destinationId)} />
         </div>
       </aside>
       <button className="dest-detail-btn mt-3 w-25 mx-auto mx-lg-0" type="button" onClick={handleClick}>Back</button>

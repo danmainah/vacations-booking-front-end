@@ -26,8 +26,8 @@ export default function Reservation() {
   const [endDate, setEndDate] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const findDestName = (id) => {
-    const dest = destinations.filter((dest) => dest.id === id);
-    return dest[0].name;
+    const dest = destinations.find((dest) => dest.id === Number(id));
+    return dest.name;
   };
 
   let destination = (location.state && location.state.id) ? location.state.id : null;
