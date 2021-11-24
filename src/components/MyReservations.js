@@ -64,11 +64,10 @@ const MyReservations = () => {
               Cancel reservation
             </button>
           </li>
-        ))
-      }
-      </ul>
-    </>
-  );
-};
+        ))};
+          </ul>
+        </>
+      )
+    };
 
 export default MyReservations;
