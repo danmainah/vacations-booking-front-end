@@ -3,7 +3,6 @@ import { getErrors, postReservation } from '../redux/Reservations/reservation';
 const reservationURL = 'http://localhost:3000/api/v1/reservations';
 
 const postReservationThunk = (token, data) => async (dispatch) => {
-  console.log(JSON.stringify(data));
   const req = await (fetch(reservationURL, {
     method: 'POST',
     headers: {
@@ -17,7 +16,6 @@ const postReservationThunk = (token, data) => async (dispatch) => {
   });
 
   const res = await req.json();
-  console.log(res);
 
   if (res && res.status !== 'Error!') {
     dispatch(postReservation(res));
