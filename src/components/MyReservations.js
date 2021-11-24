@@ -28,9 +28,9 @@ const MyReservations = () => {
     }
   }, [!userLogged]);
 
-  const handleCancelClick = (id) => {
+  const handleCancelClick = (id, token) => {
     dispatch(reservationIsLoading());
-    dispatch(deleteReservationThunk(id));
+    dispatch(deleteReservationThunk(id, token));
   };
 
   return (
@@ -88,7 +88,7 @@ const MyReservations = () => {
                     <button
                       className="btn btn-danger"
                       type="button"
-                      onClick={() => handleCancelClick(data.id)}
+                      onClick={() => handleCancelClick(data.id, token)}
                     >
                       Cancel reservation
                     </button>
