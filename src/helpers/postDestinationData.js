@@ -1,7 +1,5 @@
 const destinationUrl = 'http://localhost:3000/api/v1/destinations';
 const token = localStorage.getItem('token');
-// eslint-disable-next-line
-export let serverResponse = '';
 
 const postDestination = (body) => async () => {
   const request = await fetch(destinationUrl, {

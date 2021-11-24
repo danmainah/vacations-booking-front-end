@@ -6,6 +6,7 @@ const LOAD = 'vacations-booking-front-end/destinations/LOAD';
 const DELETE = 'vacations-booking-front-end/destinations/DELETE';
 const IS_LOADING = 'vacations-booking-front-end/destinations/IS_LOADING';
 const initialState = [];
+const token = localStorage.getItem('token');
 
 // Action creators
 const deleteDestination = (payload) => ({
@@ -14,7 +15,7 @@ const deleteDestination = (payload) => ({
 });
 
 const deleteThunkDestination = (destinationId) => async (dispatch) => {
-  const response = await destroyDestination();
+  const response = await destroyDestination(destinationId, token);
   if (response.status === 'Success!') {
     dispatch(deleteDestination(destinationId));
   }
@@ -49,7 +50,7 @@ const destinationsReducer = (state = initialState, action) => {
     case DELETE:
       return {
         ...state,
-        ...state.destinations.filter((destination) => destination.id !== action.payload),
+        destinations: state.destinations.filter((destination) => destination.id !== action.payload),
         loading: false,
       };
     case IS_LOADING:
