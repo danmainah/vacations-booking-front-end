@@ -16,7 +16,6 @@ const DestinationDetails = () => {
   const destinations = useSelector((state) => state.destinations.destinations);
 
   const destination = destinations.find((dest) => dest.id === Number(destinationId));
-  console.log(destinations);
 
   return (
     <div className="row container-fluid vh-100 mt-5">
@@ -33,7 +32,7 @@ const DestinationDetails = () => {
           <FontAwesomeIcon icon={faAngleRight} />
         </Link>
         <div className="justify-self-end h-100 d-flex align-items-end justify-content-center">
-          <ReserveButton id={destinationId} />
+          <ReserveButton id={Number(destinationId)} />
         </div>
       </aside>
       <button className="dest-detail-btn mt-3 w-25 mx-auto mx-lg-0" type="button" onClick={handleClick}>Back</button>
