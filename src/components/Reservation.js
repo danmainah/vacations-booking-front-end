@@ -46,17 +46,6 @@ export default function Reservation() {
     dispatch(clearStatus());
   }, []);
 
-  // const setBackgroundImg = () => {
-  //   const url = destinations.filter((place) => place.name === chosenDestination);
-  //   return url[0].image_url || url.image_url;
-  // };
-
-  // const [bgImg, setBgImg] = useState(setBackgroundImg());
-
-  // useEffect(() => {
-  //   setBgImg(setBackgroundImg());
-  // }, [chosenDestination]);
-
   const handleStartDate = (date) => {
     setStartDate(date);
     setEndDate(null);
@@ -92,9 +81,6 @@ export default function Reservation() {
       {(token && username) ? (
         <div
           className={styles.wrapper}
-          // style={{
-          //   backgroundImage: `url(${bgImg})`,
-          // }}
         >
           {!submitted && (
           <div className={styles.formWrapper}>

@@ -88,10 +88,6 @@ https://flickity.metafizzy.co
   top: 50%;
   width: 70px;
   height: 50px;
-
-  /* border-radius: 50%; */
-
-  /* vertically center */
   transform: translateY(-50%);
 }
 
@@ -140,21 +136,6 @@ https://flickity.metafizzy.co
 .flickity-rtl .flickity-page-dots {
   direction: rtl;
 }
-
-/* .flickity-page-dots .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 8px;
-  background: #333;
-  border-radius: 50%;
-  opacity: 0.25;
-  cursor: pointer;
-}
-
-.flickity-page-dots .dot.is-selected {
-  opacity: 1;
-} */
 
 hr {
   border-top: 2px solid #97bf11;

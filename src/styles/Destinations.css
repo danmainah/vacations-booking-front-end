@@ -9,6 +9,7 @@
   border: none;
   background: none;
   position: sticky;
+  position: -webkit-sticky;
   bottom: 0;
 }
 

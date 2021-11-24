@@ -42,7 +42,6 @@ export const authUser = async (data) => {
   if (res.token) {
     localStorage.setItem('token', res.token);
     const user = jwt(res.token);
-    console.log(user);
     res.details = user.sub;
     return res;
   }
@@ -78,7 +77,6 @@ export const regUser = async (data) => {
       res.details = user.sub;
       return res;
     }
-    console.log(res);
     return res;
   }
   return Promise.reject(req);
