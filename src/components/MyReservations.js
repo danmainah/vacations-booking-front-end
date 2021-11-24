@@ -4,7 +4,10 @@ import {
   useDispatch,
 } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Flickity from 'react-flickity-component';
+import { Card } from 'react-bootstrap';
 import { deleteReservationThunk, reservationIsLoading, loadReservationsThunk } from '../redux/Reservations/reservation';
+import '../styles/Flickity.css';
 
 const MyReservations = () => {
   const reservations = useSelector((state) => state.reservations.reservations);
@@ -35,43 +38,66 @@ const MyReservations = () => {
       { isLoading ? (
         <img className="w-100" src="rotate-pulsating-loading-animation.webp" alt="spinner" />
       ) : (
-        <>
-          <h2>My Reservations</h2>
-          <ul>
-            {' '}
-            {reservations
-        && reservations.map((reservation) => (
-          <li key={reservation.id}>
-            <span>
-              {' '}
-              {reservation.name}
-              {' '}
-            </span>
-            <span>
-              {' '}
-              from:
-              {reservation.startDate}
-            </span>
-            <span>
-              {' '}
-              to:
-              {reservation.endDate}
-            </span>
-            <span>
-              {' '}
-              to:
-              {reservation.cost}
-            </span>
-            <button
-              type="button"
-              onClick={() => handleCancelClick(reservation.id)}
+        <div className="container-fluid">
+          <div className="align-middle">
+            <h4 className="d-flex justify-content-center m-3 fw-bold text-info">MY RESERVATIONS</h4>
+
+            <Flickity
+              className="carousel" // default ''
+              elementType="div" // default 'div'
+            // options="flickityOptions" // takes flickity options {}
+              disableImagesLoaded={false} // default false
+              reloadOnUpdate // default false
+              static
             >
-              Cancel reservation
-            </button>
-          </li>
-        ))}
-          </ul>
-        </>
+              {reservations
+              && reservations.map((data) => (
+                <Card key={data.id} className="text-center">
+                  <Card.Img className="rounded-circle" variant="top" src={data.image_url} alt="Card  cap" />
+                  <Card.Body>
+                    <Card.Title>
+                      <h4 className="d-flex justify-content-center ">
+                        {data.name}
+                      </h4>
+                    </Card.Title>
+                    <hr />
+                    <Card.Text>
+                      <h6>
+                        Check in:
+                        {' '}
+                        <small>
+                          {data.startingDay}
+                        </small>
+                      </h6>
+                      <h6>
+                        Check out:
+                        {' '}
+                        <small>
+                          {data.endingDay}
+                        </small>
+                      </h6>
+                      <big>
+                        Total cost:
+                        {' '}
+                        {data.cost}
+                        $
+                      </big>
+                    </Card.Text>
+                  </Card.Body>
+                  <Card.Footer className="d-flex justify-content-center">
+                    <button
+                      className="btn btn-danger"
+                      type="button"
+                      onClick={() => handleCancelClick(data.id)}
+                    >
+                      Cancel reservation
+                    </button>
+                  </Card.Footer>
+                </Card>
+              ))}
+            </Flickity>
+          </div>
+        </div>
       )}
     </>
   );
