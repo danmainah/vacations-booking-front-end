@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/Auth/auth';
 import { reservationIsLoading, getReservationThunk } from '../redux/Reservations/reservation';
@@ -11,8 +11,10 @@ export default function MenuItems() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(reservationIsLoading());
-    dispatch(getReservationThunk());
+    if (loggedIn) {
+      dispatch(reservationIsLoading());
+      dispatch(getReservationThunk());
+    }
   }, [dispatch]);
 
   const handleLogOut = (e) => {
@@ -20,13 +22,13 @@ export default function MenuItems() {
     dispatch(logOutUser());
   };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!loggedIn) {
-      navigate('/');
-    }
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   if (!loggedIn) {
+  //     navigate('/');
+  //   }
+  // }, [loggedIn]);
 
   const activeStyle = {
     color: 'white',
