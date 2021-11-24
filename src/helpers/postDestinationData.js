@@ -1,10 +1,7 @@
-import uuid from 'react-uuid';
-import { postDestinations, addDestinations } from '../redux/Destinations/destinations';
+import { postDestinations, loadDestinationsThunk } from '../redux/Destinations/destinations';
 
 const destinationUrl = 'http://localhost:3000/api/v1/destinations';
 const token = localStorage.getItem('token');
-// eslint-disable-next-line
-export let serverResponse = '';
 
 const postDestination = (body) => async (dispatch) => {
   const request = await fetch(destinationUrl, {
@@ -18,7 +15,7 @@ const postDestination = (body) => async (dispatch) => {
   const response = await request.json();
   dispatch(postDestinations(response));
   if (response.status === 'Success!') {
-    dispatch(addDestinations({ ...body, id: uuid() }));
+    dispatch(loadDestinationsThunk());
   }
   return response.message;
 };

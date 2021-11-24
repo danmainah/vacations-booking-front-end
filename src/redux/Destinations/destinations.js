@@ -5,7 +5,6 @@ import destroyDestination from '../../helpers/destroyDestination';
 const LOAD = 'vacations-booking-front-end/destinations/LOAD';
 const DELETE = 'vacations-booking-front-end/destinations/DELETE';
 const POST = 'vacations-booking-front-end/destinations/POST';
-const ADD = 'vacations-booking-front-end/destinations/ADD';
 const IS_LOADING = 'vacations-booking-front-end/destinations/IS_LOADING';
 const initialState = [];
 
@@ -21,11 +20,6 @@ const deleteThunkDestination = (destinationId) => async (dispatch) => {
     dispatch(deleteDestination(destinationId));
   }
 };
-
-export const addDestinations = (payload) => ({
-  type: ADD,
-  payload,
-});
 
 const loadDestinations = (payload) => ({
   type: LOAD,
@@ -52,11 +46,6 @@ const destIsLoading = () => ({
 const destinationsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case ADD:
-      return {
-        ...state,
-        ...state.destinations.push(payload),
-      };
     case LOAD:
       return {
         ...state,
