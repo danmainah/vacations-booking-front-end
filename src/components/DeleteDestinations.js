@@ -7,6 +7,7 @@ import styles from '../styles/Delete.module.css';
 const DeleteDestinations = () => {
   const destinations = useSelector((state) => state.destinations.destinations);
   const dispatch = useDispatch();
+
   const handleDelete = (destinationId) => {
     dispatch(deleteThunkDestination(destinationId));
   };
@@ -28,7 +29,7 @@ const DeleteDestinations = () => {
         && destinations.map((destination) => (
           <li className="list-group-item d-flex justify-content-between" key={destination.id}>
             {destination.name}
-            <Button variant="flat" className="ms-5" onClick={handleDelete}>
+            <Button variant="flat" className="ms-5" onClick={() => handleDelete(destination.id)}>
               Remove
             </Button>
           </li>

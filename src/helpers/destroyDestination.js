@@ -1,8 +1,11 @@
 const destroyDestination = async (id, token) => {
-  const request = await fetch(`/api/v1/destinations/${id}`,
+  const request = await fetch(`http://localhost:3000/api/v1/destinations/${id}`,
     {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json', Authentication: token },
+      headers: new Headers({
+        Authorization: token,
+        'Content-Type': 'application/json',
+      }),
     });
   const response = await request.json();
   return response;
