@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vacation Booking App(Front-end)
 
-## Available Scripts
+> Vacation Booking App is a tool that helps users to plan for thier vacation trips. User can view a list of beautiful destinations, register and choose one or many they want to book a trip for. Regestered users are able to view a list of destinations they booked. Only admin users are allowed to add destinations.
 
-In the project directory, you can run:
+![vacations-booking-screenshot](https://user-images.githubusercontent.com/14215157/143226630-4772855a-9640-4aaf-a595-11be928e8e5a.png)
 
-### `yarn start`
+## Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- Redux
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get a local copy up and run the app, follow these simple example steps.
 
-### `yarn build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js > 16.13.0
+- npm > 8.1.3
+- yarn > 1.22.15
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository with:
 
-### `yarn eject`
+```
+git clone git@github.com:danmainah/vacations-booking-front-end.git
+```
+or download [ZIP file](https://github.com/danmainah/vacations-booking-front-end/archive/refs/heads/dev.zip)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Install
+To install all dependencies, run:
+```
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Usage
+To open it in the browser, in the project directory, run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ ```
+ npm start
+ ```
+ Choose port 3001 or any other port number different from 3000 to run your server on it
+ and open `http:localhost:port_number/` on your browser.
+ You should be able to see the home page
+ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## IMPORTANT!!!
+Since this repo contains the front-end app only, [the back-end app]()(the rails application) must be running in the background
 
-## Learn More
+## 👤👤 Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Aleksandar Ivezic**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - GitHub: [@Aleksandar Ivezic](https://github.com/ShinobiWarior)
+  - Twitter: [@AIvezic](https://twitter.com/AIvezic)
+  - LinkedIn: [Aleksandar Ivezic](https://www.linkedin.com/in/aleksandar-ivezic/)
 
-### Code Splitting
+👤 **Vo Thi Quynh Yen**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - GitHub: [@themonster2015](https://github.com/themonster2015)
+  - LinkedIn: [LinkedIn](https://www.linkedin.com/in/jen-vo-89bbb74b/)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+👤 **Hubert MUGABO**
 
-### Making a Progressive Web App
+  -  Github: [@mugberto](https://github.com/mugberto)
+  -  Twitter: [@mugberto](https://twitter.com/mugberto)
+  -  Linkedin: [mugberto](https://www.linkedin.com/in/hubert-mugabo-23144b6a/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+👤 **Igor Koloski**
 
-### Advanced Configuration
+  - GitHub: [@igorkol91](https://github.com/igorkol91)
+  - Twitter: [@Destro49536502]
+  - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+👤 **Daniel Maina**
 
-### Deployment
+  - GitHub: [@danmainah](https://github.com/danmainah)
+  - Twitter: [@Danmainah](https://twitter.com/dan_mainah)
+  - LinkedIn: [@Daniel-Maina](www.linkedin.com/in/daniel-maina-315a38191)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🤝 Contributing
 
-### `yarn build` fails to minify
+Contributions, issues, and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to check the [issues page](https://github.com/danmainah/vacations-booking-front-end/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- This project was inspired by [Microverse](https://www.microverse.org/?grsf=w9rx3c)
+- [Murat Korkmaz](https://www.behance.net/muratk) for the amazing design
+
+## 📝 License
+
+This project is [MIT](https://github.com/ShinobiWarior/hello-react-front-end/blob/setup/LICENSE) licensed.
