@@ -11,8 +11,8 @@ const DestForm = () => {
     name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
 
-  const handlePost = (destinationId) => {
-    dispatch(postDestination(destinationId));
+  const handlePost = (inputs) => {
+    dispatch(postDestination(inputs));
     setInputs({ displayMessage: 'Destination succesfully created!!!' });
     setTimeout(() => {
       setInputs({ ...inputs, displayMessage: '' });
