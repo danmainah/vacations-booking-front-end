@@ -33,3 +33,8 @@ code {
     'Courier New',
     monospace;
 }
+
+.dest-link {
+  text-decoration: none;
+  text-align: center;
+}

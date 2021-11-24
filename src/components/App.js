@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/reserve/:destination_id" element={<Reservation />} />
             <Route path="/home" element={<Home />} />
             <Route path="/destinations/delete" element={<DeleteDestinations />} />
-            <Route path="/destination_details" element={<DestinationDetails id={1} />} />
+            <Route path="/destinations/:destinationId" element={<DestinationDetails />} />
           </Routes>
         </div>
       </Router>

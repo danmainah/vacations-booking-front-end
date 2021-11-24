@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import moment from 'moment';
 import {
   Form, Button, Row, Col,
@@ -14,21 +13,27 @@ import { isTokenExpired } from '../helpers/authUser';
 import { logOutUser } from '../redux/Auth/auth';
 import { clearStatus } from '../redux/Reservations/reservation';
 
-export default function Reservation(props) {
+export default function Reservation() {
   const username = useSelector((state) => state.user.username);
   const token = useSelector((state) => state.user.token);
   const regStatus = useSelector((state) => state.reservations);
   const destinations = useSelector((state) => state.destinations.destinations);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [submitted, setSubmitted] = useState(false);
-  let { destination } = props;
-  const destinationPassed = destination !== 'default';
-  destination = destination === 'default' ? destinations[0].name : destination;
+  const findDestName = (id) => {
+    const dest = destinations.filter((dest) => dest.id === id);
+    return dest[0].name;
+  };
+
+  let destination = (location.state && location.state.id) ? location.state.id : null;
+  const destinationPassed = destination !== null;
+  destination = destination === null ? destinations[0].name : findDestName(destination);
   const [chosenDestination, setChosenDestination] = useState(destination);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const res = isTokenExpired();
@@ -227,10 +232,3 @@ export default function Reservation(props) {
 
   );
 }
-
-Reservation.propTypes = {
-  destination: PropTypes.string,
-};
-Reservation.defaultProps = {
-  destination: 'default',
-};
