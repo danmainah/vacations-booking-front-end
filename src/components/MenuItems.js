@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/Auth/auth';
 
@@ -14,14 +14,6 @@ export default function MenuItems() {
     e.preventDefault();
     dispatch(logOutUser());
   };
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!loggedIn) {
-      navigate('/');
-    }
-  }, [loggedIn]);
 
   const activeStyle = {
     color: 'white',
