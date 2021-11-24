@@ -21,6 +21,7 @@ html {
   height: 100vh;
   overflow: scroll;
   display: flex;
+  width: 100%;
 }
 
 .formWrapper {

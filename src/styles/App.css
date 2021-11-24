@@ -8,6 +8,11 @@
   display: flex;
 }
 
+.main {
+  width: 100%;
+  display: flex;
+}
+
 .react-datepicker__input-container > input {
   display: block;
   width: 100%;
@@ -51,6 +56,20 @@ button {
 
   .App {
     display: block;
+  }
+
+  #mobile {
+    z-index: 1000;
+    opacity: 0.9;
+  }
+
+  .main {
+    position: absolute;
+    top: 0 !important;
+  }
+
+  .container-fluid {
+    margin-top: 5em;
   }
 }
 
@@ -104,4 +123,8 @@ button {
 :-moz-placeholder {
   /* Firefox 18- */
   color: white;
+}
+
+#basic-navbar-nav {
+  background-color: rgb(84, 126, 22);
 }

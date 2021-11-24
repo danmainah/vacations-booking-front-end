@@ -1,8 +1,4 @@
 .wrapper {
-  /* position: absolute;
-  float: left;
-  top: 0;
-  left: 0; */
   border-right: 3px solid lightgray;
   display: flex;
   flex-direction: column;
@@ -72,5 +68,6 @@
 @media (max-width: 991px) {
   .buttonStyle {
     font-size: small !important;
+    background-color: transparent;
   }
 }
