@@ -1,21 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DetailList from './destinationDetailsComponents/DetailList';
 import ReserveButton from './destinationDetailsComponents/ReserveButton';
 import '../styles/destinationDetails.css';
 
-const DestinationDetails = ({ id }) => {
+const DestinationDetails = () => {
   const navigate = useNavigate();
+  const { destinationId } = useParams();
 
   const handleClick = () => navigate('/');
 
   const destinations = useSelector((state) => state.destinations.destinations);
 
-  const destination = destinations.find((dest) => dest.id === id);
+  const destination = destinations.find((dest) => dest.id === Number(destinationId));
 
   return (
     <div className="row container-fluid vh-100 mt-5">
@@ -32,16 +32,12 @@ const DestinationDetails = ({ id }) => {
           <FontAwesomeIcon icon={faAngleRight} />
         </Link>
         <div className="justify-self-end h-100 d-flex align-items-end justify-content-center">
-          <ReserveButton id={id} />
+          <ReserveButton id={Number(destinationId)} />
         </div>
       </aside>
       <button className="dest-detail-btn mt-3 w-25 mx-auto mx-lg-0" type="button" onClick={handleClick}>Back</button>
     </div>
   );
-};
-
-DestinationDetails.propTypes = {
-  id: PropTypes.number.isRequired,
 };
 
 export default DestinationDetails;

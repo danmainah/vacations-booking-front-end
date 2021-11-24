@@ -36,7 +36,7 @@ const DetailList = ({ name, location, pricePerDay }) => (
 DetailList.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  pricePerDay: PropTypes.number.isRequired,
+  pricePerDay: PropTypes.string.isRequired,
 };
 
 export default DetailList;

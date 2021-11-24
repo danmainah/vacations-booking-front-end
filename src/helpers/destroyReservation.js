@@ -1,5 +1,5 @@
-const destroyDestination = async (id, token) => {
-  const request = await fetch(`http://localhost:3000/api/v1/destinations/${id}`,
+const destroyReservation = async (id, token) => {
+  const request = await fetch(`http://localhost:3000/api/v1/reservations/${id}`,
     {
       method: 'DELETE',
       headers: new Headers({
@@ -11,4 +11,4 @@ const destroyDestination = async (id, token) => {
   return response;
 };
 
-export default destroyDestination;
+export default destroyReservation;

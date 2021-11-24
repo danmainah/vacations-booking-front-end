@@ -11,13 +11,21 @@ const DestForm = () => {
   };
 
   const [inputs, setInputs] = useState({
-    name: '', location: '', image_url: '', price_per_day: '',
+    name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
+
+  const handlePost = (inputs) => {
+    dispatch(postDestination(inputs));
+    setInputs({ displayMessage: 'Destination succesfully created!!!' });
+    setTimeout(() => {
+      setInputs({ ...inputs, displayMessage: '' });
+    }, 4000);
+  };
 
   return (
     <div className="wrapper" id="login">
       <div className="mainForm w-50">
-        <h1>Create A New Destination</h1>
+        <h1>{inputs.displayMessage}</h1>
         <Form onSubmit={(e) => {
           e.preventDefault();
           handlePost(inputs);
