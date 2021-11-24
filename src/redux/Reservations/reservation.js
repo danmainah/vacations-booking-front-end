@@ -47,7 +47,6 @@ const deleteReservation = (payload) => ({
 const deleteReservationThunk = (reservationId, token) => async (dispatch) => {
   const response = await destroyReservation(reservationId, token);
   if (response.status === 'Success!') {
-    console.log('resId', reservationId);
     dispatch(reservationIsLoading());
     dispatch(deleteReservation(reservationId));
   }
@@ -86,7 +85,6 @@ const reservationReducer = (state = initialValue, action) => {
         loading: true,
       };
     case DELETE:
-      console.log('payload', action.payload);
       return {
         ...state,
         reservations: state.reservations.filter((reservation) => reservation.id !== action.payload),
