@@ -6,7 +6,7 @@ const ReserveButton = ({ id }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate('/reserve', { id });
+    navigate('/reserve', { state: { id } });
   };
   return (
     <button className="w-75 dest-detail-btn" type="button" onClick={() => handleClick(id)}>
