@@ -40,7 +40,7 @@ const MyReservations = () => {
       ) : (
         <div className="container-fluid">
           <div className="align-middle">
-            <h4 className="d-flex justify-content-center m-3 fw-bold text-info">MY RESERVATIONS</h4>
+            <h4 className="d-flex justify-content-center m-4 fw-bold text-info">MY RESERVATIONS</h4>
 
             <Flickity
               className="carousel" // default ''
