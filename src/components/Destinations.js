@@ -7,7 +7,8 @@ import '../styles/Destinations.css';
 
 const Destinations = () => {
   const data = useSelector((state) => state.destinations.destinations);
-  const state = data.sort(() => 0.5 - Math.random());
+  let state = [];
+  if (data) state = data.sort(() => 0.5 - Math.random());
   const isLoading = useSelector((state) => state.destinations.loading);
 
   return (

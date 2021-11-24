@@ -8,6 +8,7 @@ import Login from './Login';
 import Destinations from './Destinations';
 import DestForm from './AddDestinationForm';
 import Reservation from './Reservation';
+import MyReservations from './MyReservations';
 import { destIsLoading, loadDestinationsThunk } from '../redux/Destinations/destinations';
 import DeleteDestinations from './DeleteDestinations';
 import Navbar from './Navbar';
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/destinations/delete" element={<DeleteDestinations />} />
           <Route path="/destination_details" element={<DestinationDetails id={1} />} />
+          <Route path="/reservations" element={<MyReservations />} />
         </Routes>
       </Router>
     </div>

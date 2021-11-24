@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   useSelector,
   useDispatch,
 } from 'react-redux';
-// eslint-disable-next-line import/extensions
-import { cancelReservation } from '../redux/reservations/reservationReducer';
-// import { getReservationThunk, reservationIsLoading } from '../redux/Reservations/reservation';
+import { useNavigate } from 'react-router-dom';
+import { deleteReservationThunk, reservationIsLoading, loadReservationsThunk } from '../redux/Reservations/reservation';
 
 const MyReservations = () => {
-  const reservations = useSelector((state) => state.reservations);
+  const reservations = useSelector((state) => state.reservations.reservations);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.reservations.loading);
+  const userLogged = useSelector((state) => state.user.logged_in);
+  const navigate = useNavigate();
+  const token = useSelector((state) => state.user.token);
 
-  // useEffect(() => {
-  //   if (reservations === []) {
-  //     dispatch(loadReservations());
-  //   }
-  // }, []);
+  useEffect(() => {
+    dispatch(reservationIsLoading());
+    dispatch(loadReservationsThunk(token));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!userLogged) {
+      navigate('/login');
+    }
+  }, [!userLogged]);
 
   const handleCancelClick = (id) => {
-    dispatch(cancelReservation(id));
+    dispatch(reservationIsLoading());
+    dispatch(deleteReservationThunk(id));
   };
 
   return (
@@ -31,8 +39,8 @@ const MyReservations = () => {
           <h2>My Reservations</h2>
           <ul>
             {' '}
-            {
-        reservations.map((reservation) => (
+            {reservations
+        && reservations.map((reservation) => (
           <li key={reservation.id}>
             <span>
               {' '}
@@ -61,8 +69,7 @@ const MyReservations = () => {
               Cancel reservation
             </button>
           </li>
-        ))
-      }
+        ))}
           </ul>
         </>
       )}
