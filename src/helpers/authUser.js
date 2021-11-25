@@ -2,12 +2,9 @@ import jwt from 'jwt-decode';
 
 const URL = 'http://localhost:3000/api/v1/';
 
-const handleError = (err) => {
-  console.warn(err);
-  return new Response(JSON.stringify(
-    { errors: ['Connection failed!', 'Server is down!'] },
-  ));
-};
+const handleError = () => (new Response(JSON.stringify(
+  { errors: ['Connection failed!', 'Server is down!'] },
+)));
 
 export const isTokenExpired = () => {
   const token = localStorage.getItem('token');
@@ -33,9 +30,7 @@ export const authUser = async (data) => {
       password: data.password,
 
     }), // body data type must match "Content-Type" header
-  })).catch((e) => {
-    console.log(e);
-  });
+  })).catch((e) => e);
 
   const res = await req.json();
 
