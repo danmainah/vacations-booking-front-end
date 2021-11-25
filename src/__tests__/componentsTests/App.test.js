@@ -1,11 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 import App from '../../components/App';
+import store from '../../redux/store';
 
 describe('App', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<App />)
+      .create(<Provider store={store}><App /></Provider>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
