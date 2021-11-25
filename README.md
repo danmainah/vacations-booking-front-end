@@ -24,11 +24,6 @@ The app consumes an API created using the Ruby on Rails framework. Link to API r
 ![image](https://user-images.githubusercontent.com/63932912/143423214-7d36d63b-44d4-4cf2-8ee6-18d6015b20e7.png)
 ![image](https://user-images.githubusercontent.com/63932912/143424636-11a970bf-ab18-4922-a76c-385184641323.png)
 
-
-
-
-
-
 ## Built With
 
 - React
@@ -69,6 +64,12 @@ To open it in the browser, in the project directory, run:
  Choose port 3001 or any other port number different from 3000 to run your server on it
  and open `http:localhost:port_number/` on your browser.
  You should be able to see the home page
+ 
+ ### Tests
+ To test the application please run:
+ ```
+ npm test
+ ```
  
 
 ## IMPORTANT!!!
