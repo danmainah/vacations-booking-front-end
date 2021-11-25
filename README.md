@@ -2,7 +2,9 @@
 
 # Vacation Booking App(Front-end)
 
-> Vacation Booking App is a tool that helps users to plan for thier vacation trips. User can view a list of beautiful destinations, register and choose one or many they want to book a trip for. Regestered users are able to view a list of destinations they booked. Only admin users are allowed to add destinations.
+> Vacation Booking App is an oonline booking  app that allows users to see  destinations, reserve a destination,view  all reservations, add and delete destinations. Regestered users are able to view a list of destinations they booked. Only admin users are allowed to add destinations.
+
+The app consumes an API created using the Ruby on Rails framework. Link to API repo  [click here](https://github.com/mugberto/vacations-booking-back-end)
 
 ![vacations-booking-screenshot](https://user-images.githubusercontent.com/14215157/143226630-4772855a-9640-4aaf-a595-11be928e8e5a.png)
 
