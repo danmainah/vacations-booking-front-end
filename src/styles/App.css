@@ -116,10 +116,11 @@ button {
 .navbar-toggler-icon {
   color: #fff;
 }
+
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 ::-webkit-input-placeholder {
