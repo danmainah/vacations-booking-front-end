@@ -108,6 +108,20 @@ button {
   font-size: small;
 }
 
+.navbar-toggler {
+  border: none;
+  color: #fff;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    box-shadow: none;
+}
+
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: white;
