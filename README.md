@@ -7,7 +7,7 @@
 The app consumes an API created using the Ruby on Rails framework. Link to API repo  [click here](https://github.com/mugberto/vacations-booking-back-end)
 
 ## Live Demo
- [click here](https://booking-destinations.netlify.app) to view the app.
+ [Click here](https://booking-destinations.netlify.app) to open the app.
 
 # Application Screenshot
 
@@ -65,9 +65,29 @@ To open it in the browser, in the project directory, run:
  npm start
  ```
  Choose port 3001 or any other port number different from 3000 to run your server on it
- and open `http:localhost:port_number/` on your browser.
- You should be able to see the home page
+ and open 
+ ```
+ http:localhost:port_number/
+ ```
+ on your browser.
  
+ ## IMPORTANT!!! 
+ Since this repo contains the front-end app only,if you want to run the back-end localy please look for [the back-end app](https://github.com/mugberto/vacations-booking-back-end).
+  If you want to use your local server you will need to update urls in helper functions:
+  
+  **src/helpers**
+  ```
+  destroyDestination.js
+  destroyReservation.js
+  getDestinations.js
+  getResrvations.js
+  postDestinationData.js
+  postReservation.js
+  ```
+  Make sure that instead of `https://booking-vacations.herokuapp.com` you put `http://localhost:3000`!
+  
+ You should be able to see the home page now.
+  
  ### Tests
  To test the application please run:
  ```
@@ -75,8 +95,7 @@ To open it in the browser, in the project directory, run:
  ```
  
 
-## IMPORTANT!!!
-Since this repo contains the front-end app only, [the back-end app]()(the rails application) must be running in the background
+
 
 ## 👤👤 Authors
 
