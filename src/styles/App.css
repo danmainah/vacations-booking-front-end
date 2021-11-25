@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,900;1,700&display=swap");
+
+.App {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+}
+
+.react-datepicker__input-container > input {
+  display: block;
+  width: 100%;
+  margin-right: 13px;
+  margin-left: 3px;
+  background:
+    url(https://img.favpng.com/7/5/16/calendar-icon-png-favpng-rQvJKhTsVSgVg5BzW3ZSPGKmN.jpg)
+    no-repeat 100%;
+  background-size: 30px;
+  background-position: 99% 3px;
+  height: 40px;
+  border-radius: 7px;
+  border: 2px solid white;
+  color: white;
+}
+
+#target,
+#user {
+  background-color: transparent;
+  border: 3px solid rgb(211, 235, 205);
+  outline: whitesmoke;
+  box-shadow: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: default;
+  display: flex;
+}
+
+#login > input,
+button {
+  border-radius: 20px !important;
+  line-height: 190% !important;
+  text-align: center;
+  display: flex;
+}
+
+.list-group {
+  overflow-y: scroll;
+}
+
+@media (max-width: 767px) {
+  #desktop {
+    display: none;
+  }
+
+  .App {
+    display: block;
+  }
+
+  #mobile {
+    z-index: 1000;
+    opacity: 0.9;
+  }
+
+  .main {
+    position: absolute;
+    top: 0 !important;
+  }
+
+  .container-fluid {
+    margin-top: 5em;
+  }
+}
+
+@media (min-width: 768px) {
+  #mobile {
+    display: none;
+  }
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.me-auto {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.me-auto > a {
+  list-style-type: none;
+  text-decoration: none;
+  display: block;
+  padding: 20px 30px 20px 10px;
+  color: black;
+  font-weight: bolder;
+  font-size: small;
+}
+
+.navbar-toggler {
+  border: none;
+  color: #fff;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  box-shadow: none;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+  padding-left: 3%;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+
+#basic-navbar-nav {
+  background-color: rgb(84, 126, 22);
+}

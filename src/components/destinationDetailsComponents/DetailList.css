@@ -1,0 +1,13 @@
+.detail-list {
+  list-style-type: none;
+}
+
+.detail-list > li:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.dest-detail-btn {
+  color: white;
+  background-color: #97bf11;
+  border-radius: 50%;
+}
