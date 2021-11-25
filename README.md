@@ -19,6 +19,7 @@ The app consumes an API created using the Ruby on Rails framework. Link to API r
 ![Screenshot (66)](https://user-images.githubusercontent.com/61408860/143414410-983bcb2c-03c2-4cbd-8f40-62afb4f6bb91.png)
 
 ### Mobile view
+
 ![Screenshot (76)](https://user-images.githubusercontent.com/61408860/143414486-17df9181-5ea4-4114-bb5b-55544f935869.png)
 
 ![Screenshot (75)](https://user-images.githubusercontent.com/61408860/143414502-e7f71983-7203-427f-84e5-acc208f2af96.png)
