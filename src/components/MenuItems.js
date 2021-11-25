@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { logOutUser } from '../redux/Auth/auth';
 import NavItem from './NavItem';
 import styles from '../styles/Navbar.module.css';
@@ -9,6 +9,7 @@ export default function MenuItems() {
   const loggedIn = useSelector((state) => state.user.logged_in);
   const isAdmin = useSelector((state) => state.user.admin);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const activeStyle = {
     color: 'white',
@@ -18,6 +19,7 @@ export default function MenuItems() {
   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(logOutUser());
+    navigate('/');
   };
 
   const urls = [
@@ -71,6 +73,7 @@ export default function MenuItems() {
             to={url.to}
             text={url.text}
             clickHandler={url.clickHandler}
+            activeStyle={activeStyle}
           />
           ));
         } if (url.protected) {
@@ -80,6 +83,7 @@ export default function MenuItems() {
             to={url.to}
             text={url.text}
             clickHandler={url.clickHandler}
+            activeStyle={activeStyle}
           />
           ));
         }
@@ -89,30 +93,27 @@ export default function MenuItems() {
             to={url.to}
             text={url.text}
             clickHandler={url.clickHandler}
+            activeStyle={activeStyle}
           />
         );
       })}
 
       {loggedIn ? (
 
-        <NavLink
-          to="/"
+        <NavItem
+          to="/logout"
           className={styles.buttonStyle}
-          onClick={handleLogOut}
-        >
-          LOG OUT
-
-        </NavLink>
+          clickHandler={handleLogOut}
+          text="LOG OUT"
+        />
 
       )
         : (
-          <NavLink
+          <NavItem
             to="/login"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            LOG IN
-
-          </NavLink>
+            activeStyle={activeStyle}
+            text="LOG IN"
+          />
         )}
 
     </>
