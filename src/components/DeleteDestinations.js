@@ -13,14 +13,6 @@ const DeleteDestinations = () => {
   };
   return (
     <div className={styles.delete}>
-      <style type="text/css">
-        {`
-         .btn-flat {
-            background-color: #97BF11;
-            color: white;
-          }
-        `}
-      </style>
       <div className="listed">
         <h3 className="text-center mb-4"> My Destinations </h3>
       </div>
@@ -29,7 +21,7 @@ const DeleteDestinations = () => {
         && destinations.map((destination) => (
           <li className="list-group-item d-flex justify-content-between" key={destination.id}>
             {destination.name}
-            <Button variant="flat" className="ms-5" onClick={() => handleDelete(destination.id)}>
+            <Button className="ms-5 btn-danger" onClick={() => handleDelete(destination.id)}>
               Remove
             </Button>
           </li>

@@ -38,8 +38,8 @@ const MyReservations = () => {
       { isLoading ? (
         <img className="w-100" src="rotate-pulsating-loading-animation.webp" alt="spinner" />
       ) : (
-        <div className="container-fluid">
-          <div className="align-middle">
+        <div className="container-fluid d-flex align-items-center ">
+          <div className="align-middle w-100">
             <h4 className="d-flex justify-content-center m-4 fw-bold text-info">MY RESERVATIONS</h4>
 
             <Flickity

@@ -49,6 +49,10 @@ button {
   display: flex;
 }
 
+.list-group {
+  overflow-y: scroll;
+}
+
 @media (max-width: 767px) {
   #desktop {
     display: none;

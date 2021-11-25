@@ -105,7 +105,8 @@ export default function Reservation() {
                   <Form.Group className="mb-3" controlId="startDate">
                     <div className="mb-3">
                       <DatePicker
-                        placeholderText="Pick a Start Date"
+                        className={styles.dateInput}
+                        placeholderText="Start Date"
                         class="form-control"
                         id="startDatePicker"
                         selected={startDate}
@@ -120,7 +121,8 @@ export default function Reservation() {
                 <Col>
                   <Form.Group className="mb-3" controlId="endDate">
                     <DatePicker
-                      placeholderText="Pick an End Date"
+                      className={styles.dateInput}
+                      placeholderText="End Date"
                       class="form-control"
                       selected={endDate}
                       minDate={startDate}
