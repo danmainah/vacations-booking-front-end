@@ -2,11 +2,32 @@
 
 # Vacation Booking App(Front-end)
 
-> Vacation Booking App is an oonline booking  app that allows users to see  destinations, reserve a destination,view  all reservations, add and delete destinations. Regestered users are able to view a list of destinations they booked. Only admin users are allowed to add destinations.
+> Vacation Booking App is an online booking  app that allows users to see  destinations, reserve a destination,view  all their reservations. Regestered users are able to view a list of destinations they booked. Only admin users are allowed to add and delete destinations.
 
 The app consumes an API created using the Ruby on Rails framework. Link to API repo  [click here](https://github.com/mugberto/vacations-booking-back-end)
 
+# Application Screenshot
+
+### Desktop View
+
 ![vacations-booking-screenshot](https://user-images.githubusercontent.com/14215157/143226630-4772855a-9640-4aaf-a595-11be928e8e5a.png)
+
+![Screenshot (64)](https://user-images.githubusercontent.com/61408860/143414289-0f6d6b55-b7de-4b69-8036-5f233382bd5e.png)
+
+![Screenshot (65)](https://user-images.githubusercontent.com/61408860/143414355-f28c5cfd-ab84-451c-9be5-90eefd601d9e.png)
+
+![Screenshot (66)](https://user-images.githubusercontent.com/61408860/143414410-983bcb2c-03c2-4cbd-8f40-62afb4f6bb91.png)
+
+### Mobile view
+
+![image](https://user-images.githubusercontent.com/63932912/143423110-82bf4566-9ab4-486f-b006-c4dc4c45eaf9.png)
+![image](https://user-images.githubusercontent.com/63932912/143423214-7d36d63b-44d4-4cf2-8ee6-18d6015b20e7.png)
+![image](https://user-images.githubusercontent.com/63932912/143424636-11a970bf-ab18-4922-a76c-385184641323.png)
+
+
+
+
+
 
 ## Built With
 
