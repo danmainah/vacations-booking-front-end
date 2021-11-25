@@ -1,6 +1,6 @@
 const getReservations = async (token) => {
   try {
-    const request = await fetch('http://localhost:3000/api/v1/reservations',
+    const request = await fetch('https://booking-vacations.herokuapp.com/api/v1/reservations',
       {
         method: 'GET',
         headers: new Headers({

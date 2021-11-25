@@ -1,5 +1,5 @@
 const destroyReservation = async (id, token) => {
-  const request = await fetch(`http://localhost:3000/api/v1/reservations/${id}`,
+  const request = await fetch(`https://booking-vacations.herokuapp.com/api/v1/reservations/${id}`,
     {
       method: 'DELETE',
       headers: new Headers({

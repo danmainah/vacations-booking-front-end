@@ -1,6 +1,6 @@
 import { postDestinations, loadDestinationsThunk } from '../redux/Destinations/destinations';
 
-const destinationUrl = 'http://localhost:3000/api/v1/destinations';
+const destinationUrl = 'https://booking-vacations.herokuapp.com/api/v1/destinations';
 const token = localStorage.getItem('token');
 
 const postDestination = (body) => async (dispatch) => {

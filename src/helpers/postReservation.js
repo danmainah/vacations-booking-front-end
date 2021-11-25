@@ -1,6 +1,6 @@
 import { getErrors, postReservation } from '../redux/Reservations/reservation';
 
-const reservationURL = 'http://localhost:3000/api/v1/reservations';
+const reservationURL = 'https://booking-vacations.herokuapp.com/api/v1/reservations';
 
 const postReservationThunk = (token, data) => async (dispatch) => {
   const req = await (fetch(reservationURL, {

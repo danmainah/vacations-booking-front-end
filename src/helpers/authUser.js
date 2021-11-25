@@ -1,6 +1,6 @@
 import jwt from 'jwt-decode';
 
-const URL = 'http://localhost:3000/api/v1/';
+const URL = 'https://booking-vacations.herokuapp.com/api/v1/';
 
 const handleError = () => (new Response(JSON.stringify(
   { errors: ['Connection failed!', 'Server is down!'] },
