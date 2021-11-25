@@ -44,6 +44,10 @@
   font-weight: bolder;
 }
 
+input::placeholder {
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .mainForm {
     width: 100% !important;
