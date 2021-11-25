@@ -6,6 +6,9 @@
 
 The app consumes an API created using the Ruby on Rails framework. Link to API repo  [click here](https://github.com/mugberto/vacations-booking-back-end)
 
+## Live Demo
+ [click here](https://booking-destinations.netlify.app) to view the app.
+
 # Application Screenshot
 
 ### Desktop View
