@@ -137,7 +137,7 @@ export default function Reservation() {
                 <Col xs={6}>
                   {destinationPassed
                     ? (
-                      <Form.Group className="" controlId="destination">
+                      <Form.Group className={styles.destInput} controlId="destination">
                         <Form.Control type="text" value={chosenDestination} disabled />
                       </Form.Group>
                     ) : (
