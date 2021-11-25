@@ -43,11 +43,12 @@ export default function Register() {
   return (
     <div className="register">
       <h2>CREATE YOUR ACCOUNT</h2>
-      <hr />
+      <hr className="form-rule" />
       <p>Sign up now and book desired destination</p>
       {errors ? <p>{Object.keys(errors) ? (`${Object.keys(errors)} ${Object.values(errors)}`) : errors}</p> : ''}
       <form className="form " onSubmit={handleSubmit}>
         <input
+          className="input"
           placeholder="username"
           type="text"
           name="username"
@@ -56,6 +57,7 @@ export default function Register() {
           required
         />
         <input
+          className="input"
           placeholder="email"
           type="email"
           name="email"
@@ -64,6 +66,7 @@ export default function Register() {
           required
         />
         <input
+          className="input"
           placeholder="password"
           type="password"
           name="password"
@@ -72,6 +75,7 @@ export default function Register() {
           required
         />
         <input
+          className="input"
           placeholder="password confirmation"
           type="password"
           name="password_confirmation"
