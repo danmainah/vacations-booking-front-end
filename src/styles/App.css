@@ -49,6 +49,10 @@ button {
   display: flex;
 }
 
+.list-group {
+  overflow-y: scroll;
+}
+
 @media (max-width: 767px) {
   #desktop {
     display: none;
@@ -102,6 +106,21 @@ button {
   color: black;
   font-weight: bolder;
   font-size: small;
+}
+
+.navbar-toggler {
+  border: none;
+  color: #fff;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  box-shadow: none;
 }
 
 ::-webkit-input-placeholder {

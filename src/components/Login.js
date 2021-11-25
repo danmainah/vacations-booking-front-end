@@ -36,12 +36,14 @@ export default function Login() {
   return (
     <div className={styles.wrapper} id="login">
       <div className={styles.mainForm}>
-        <h1>LOG IN</h1>
+        <h2>LOG IN</h2>
+        <hr className="form-rule" />
         <div className={styles.loginFieldGroup}>
           {errors ? <p>{ errors}</p> : ''}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control
+                className={styles.rounded}
                 type="email"
                 name="email"
                 placeholder="Enter email"
@@ -52,6 +54,7 @@ export default function Login() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Control
+                className={styles.rounded}
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -62,7 +65,7 @@ export default function Login() {
             <Button variant="primary" type="submit" className={styles.btnForm}>
               Log In
             </Button>
-            <p className="h5 pt-3">
+            <p className=" pt-3">
               Don&apos;t have an account yet?
               {' '}
               <Link to="/register">Register now!</Link>

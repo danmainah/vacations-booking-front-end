@@ -31,7 +31,6 @@ export default function Reservation() {
   };
 
   let destination = (location.state && location.state.id) ? location.state.id : null;
-  console.log(destination);
   const destinationPassed = destination !== null;
   destination = destination === null ? destinations[0].name : findDestName(destination);
   const [chosenDestination, setChosenDestination] = useState(destination);
@@ -105,7 +104,8 @@ export default function Reservation() {
                   <Form.Group className="mb-3" controlId="startDate">
                     <div className="mb-3">
                       <DatePicker
-                        placeholderText="Pick a Start Date"
+                        className={styles.dateInput}
+                        placeholderText="Start Date"
                         class="form-control"
                         id="startDatePicker"
                         selected={startDate}
@@ -120,7 +120,8 @@ export default function Reservation() {
                 <Col>
                   <Form.Group className="mb-3" controlId="endDate">
                     <DatePicker
-                      placeholderText="Pick an End Date"
+                      className={styles.dateInput}
+                      placeholderText="End Date"
                       class="form-control"
                       selected={endDate}
                       minDate={startDate}
@@ -135,7 +136,7 @@ export default function Reservation() {
                 <Col xs={6}>
                   {destinationPassed
                     ? (
-                      <Form.Group className="" controlId="destination">
+                      <Form.Group className={styles.destInput} controlId="destination">
                         <Form.Control type="text" value={chosenDestination} disabled />
                       </Form.Group>
                     ) : (

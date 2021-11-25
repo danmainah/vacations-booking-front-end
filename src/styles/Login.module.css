@@ -44,6 +44,10 @@
   font-weight: bolder;
 }
 
+.rounded {
+  border-radius: 20px;
+}
+
 @media (max-width: 768px) {
   .mainForm {
     width: 100%;

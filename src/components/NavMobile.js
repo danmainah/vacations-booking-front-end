@@ -5,7 +5,7 @@ import MenuItems from './MenuItems';
 export default function NavMobile() {
   return (
     <Navbar expand="lg" id="mobile">
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav border-none" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <MenuItems />

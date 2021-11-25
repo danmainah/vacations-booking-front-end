@@ -28,10 +28,10 @@ p {
   font-size: small;
 }
 
-hr {
+hr.form-rule {
   border-top: 1px solid #fff;
   width: 50%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .form {
@@ -53,9 +53,9 @@ button {
   align-items: center;
 }
 
-input::placeholder {
+.input::placeholder {
   color: rgb(13, 88, 6);
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 button {

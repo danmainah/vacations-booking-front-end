@@ -11,9 +11,7 @@ const postReservationThunk = (token, data) => async (dispatch) => {
       Authorization: token,
     },
     body: JSON.stringify(data),
-  })).catch((e) => {
-    console.log(e);
-  });
+  })).catch((e) => e);
 
   const res = await req.json();
 

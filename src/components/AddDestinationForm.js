@@ -6,13 +6,16 @@ import postDestination from '../helpers/postDestinationData';
 
 const DestForm = () => {
   const dispatch = useDispatch();
-  const handlePost = (destinationId) => {
-    dispatch(postDestination(destinationId));
-  };
-
   const [inputs, setInputs] = useState({
     name: '', location: '', image_url: '', price_per_day: '', displayMessage: '',
   });
+  const handlePost = (destinationId) => {
+    dispatch(postDestination(destinationId));
+    setInputs({ displayMessage: 'Destination succesfully created!!!' });
+    setTimeout(() => {
+      setInputs({ ...inputs, displayMessage: '' });
+    }, 4000);
+  };
 
   return (
     <div className="wrapper" id="login">
