@@ -67,6 +67,7 @@ const destinationsReducer = (state = initialState, action) => {
     case POST:
       return {
         ...state,
+        destintinations: state.destinations.push(action.payload),
       };
 
     default:
