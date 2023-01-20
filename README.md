@@ -1,4 +1,5 @@
-![](https://img.shields.io/badge/microverse-blueviolet)
+![](https://img.shields.io/badge/React-blue)
+![](https://img.shields.io/badge/Javascript-yellow)
 
 # Vacation Booking App(Front-end)
 
